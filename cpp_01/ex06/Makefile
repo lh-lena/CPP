@@ -1,5 +1,5 @@
 NAME	= harlFilter
-SRC		= main.cpp
+SRC		= main.cpp Harl.cpp
 OBJ		= ${SRC:.cpp=.o}
 
 CPP		= c++

@@ -1,7 +1,13 @@
 #include "Harl.hpp"
 
-int main()
+int main(int av, char **ac)
 {
+    if (av != 2)
+        return (std::cout << "use DEBUG, INFO, WARNING or ERROR as parameter" << std::endl, 1);
+    Harl harl;
+
+    harl.complain(ac[1]);
+    
     return 0;
 }
 /*
