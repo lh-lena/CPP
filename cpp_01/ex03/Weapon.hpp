@@ -1,13 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ohladkov <ohladkov@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/10 12:37:09 by ohladkov          #+#    #+#             */
+/*   Updated: 2024/05/10 12:37:11 by ohladkov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef WEAPON_HPP
 # define WEAPON_HPP
 
-# include <cstring>
+# include <string>
 # include <iostream>
 
 class Weapon {
 public:
-	// Weapon( void );
-
+	Weapon( void );
 	Weapon (const std::string& str);
 	~Weapon( void );
 

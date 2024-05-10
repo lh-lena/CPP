@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ohladkov <ohladkov@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/10 12:45:50 by ohladkov          #+#    #+#             */
+/*   Updated: 2024/05/10 12:45:56 by ohladkov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Harl.hpp"
 
 int main(int av, char **ac)
@@ -10,5 +22,3 @@ int main(int av, char **ac)
     
     return 0;
 }
-/*
-There is some stuff that can be improved, the ex06 is implemented in a way that doesn't use the full potential of the switch statement, and sadly the weapons in ex03 do not return a const reference. Also, be careful with HumanB attacking without a weapon because it may sigsegv. Congrats!*/

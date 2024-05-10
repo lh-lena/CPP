@@ -1,9 +1,9 @@
-NAME	= test
+NAME	=	a.out 
 SRC		= main.cpp
 OBJ		= ${SRC:.cpp=.o}
 
 CPP		= c++
-FLAGS	= -Wall -Wextra -Werror -fsanitize=address -std=c++98
+FLAGS	= -Wall -Wextra -Werror -std=c++98
 
 RM		= rm -f
 
