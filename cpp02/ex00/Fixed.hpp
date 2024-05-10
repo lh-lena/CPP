@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 14:05:11 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/10 18:33:19 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/10 20:48:17 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ class Fixed
 {
 public:
     Fixed   ();
-    Fixed   (Fixed& copyCostractor);
-    Fixed& operator=(const Fixed&);
+    Fixed   (const Fixed& copyCostructor);
+    Fixed& operator= (const Fixed& fixed);
     ~Fixed  ( void );
     
 
