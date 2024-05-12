@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 14:05:11 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/10 20:48:17 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/12 15:49:55 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
     void    setRawBits( int const raw );
 
 private:
-    int                 _nbr;
+    int                 _value;
     static const int    _bits = 8;
 };
 

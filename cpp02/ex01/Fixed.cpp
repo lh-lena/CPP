@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 14:05:26 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/10 22:28:23 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/12 23:56:03 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Fixed::Fixed () {
     std::cout << "Default constractor called" << std::endl;
-    this->_nbr = 0;
+    this->_value = 0;
 }
 
 // It converts it to the corresponding fixed-point value
@@ -26,7 +26,7 @@ Fixed::Fixed (const int nbr) {
 // It converts it to the corresponding fixed-point value
 Fixed::Fixed (const float nbr) {
     std::cout << "Float constractor called" << std::endl;
-    this->_nbr = roundf((nbr * (1 << this->_fractional_bits)));
+    this->_value = roundf((nbr * (1 << this->_fractional_bits)));
 }
 
 Fixed::Fixed (const Fixed& copyConstructor) {
@@ -37,7 +37,8 @@ Fixed::Fixed (const Fixed& copyConstructor) {
 Fixed& Fixed::operator=(const Fixed& fixed)
 {
     std::cout << "Copy assignment operator called" << std::endl;
-    this->_nbr = fixed.getRawBits();
+    if (this != &fixed)
+        this->_value = fixed.getRawBits();
     return (*this);
 }
 
@@ -46,21 +47,21 @@ Fixed::~Fixed ( void ) {
 }
 
 int Fixed::getRawBits( void ) const {
-    return (this->_nbr);
+    return (this->_value);
 }
 
 void Fixed::setRawBits( int const raw ) {
-    this->_nbr = raw;
+    this->_value = raw;
 }
 
 // that converts the fixed-point value to a floating-point value
 float Fixed::toFloat( void ) const {
-    return (static_cast<float>(this->_nbr) / (1 << this->_fractional_bits));
+    return (static_cast<float>(this->_value) / static_cast<float>(1 << this->_fractional_bits));
 }
 
 // that converts the fixed-point value to an integer value
 int Fixed::toInt( void ) const {
-    return (this->_nbr >> this->_fractional_bits);
+    return (this->_value >> this->_fractional_bits); // roundf(this->_value / (1 << this << __fractional_bits))
 }
 
 // Operator overload for <<
@@ -71,5 +72,5 @@ std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
 
 /**
  * https://medium.com/@oumaimafisaoui/floating-and-fixed-point-representation-in-c-what-is-going-on-b71af54718a5
- * 
+ * https://en.cppreference.com/w/cpp/language/operators
  */

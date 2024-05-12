@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 14:05:11 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/10 22:21:58 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/12 15:49:55 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ public:
     int     toInt( void ) const;
 
 private:
-    int                 _nbr;
+    int                 _value;
     static const int    _fractional_bits = 8;
 };
 
