@@ -10,6 +10,8 @@ Point::Point (const Point& org) {
 }
 
 Point& Point::operator=(const Point& org) {
+
+	(void)org;
     return (*this);
 }
 
