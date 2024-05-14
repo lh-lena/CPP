@@ -1,5 +1,5 @@
 NAME	= a.out
-SRC		= main.cpp Fixed.cpp
+SRC		= main.cpp ClapTrap.cpp ScavTrap.cpp
 OBJ		= ${SRC:.cpp=.o}
 
 CPP		= c++

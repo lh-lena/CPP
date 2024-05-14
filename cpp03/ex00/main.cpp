@@ -3,9 +3,11 @@
 
 int main(void)
 {
-    ClapTrap    instance("A");
+    ClapTrap    A("A");
+    ClapTrap B("B");
 
-    instance.takeDamage(11);
-    instance.attack("B");
-    instance.beRepaired(2);
+    A.takeDamage(10);
+    A.attack("B");
+    B.takeDamage(10);
+    A.beRepaired(2);
 }
