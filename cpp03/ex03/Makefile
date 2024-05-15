@@ -1,9 +1,9 @@
 NAME	= a.out
-SRC		= main.cpp Fixed.cpp
+SRC		= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 OBJ		= ${SRC:.cpp=.o}
 
 CPP		= c++
-FLAGS	= -Wall -Wextra -Werror -std=c++98
+FLAGS	= -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
 
 RM		= rm -f
 
