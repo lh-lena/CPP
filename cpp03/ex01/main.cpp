@@ -5,11 +5,13 @@
 
 int main(void)
 {
-    // ClapTrap    instance("A");
+    ClapTrap	bob = ClapTrap("Bob");
+    ScavTrap	bib = ScavTrap("Bib");
 
-    // instance.takeDamage(11);
-    // instance.attack("B");
-    // instance.beRepaired(2);
+    bob.attack("a worm");
+    bob.takeDamage(9);
 
-    ScavTrap b;
+    bib.attack("a human");
+    bib.guardGate();
+    bib.beRepaired(5);
 }
