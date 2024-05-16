@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 10:54:28 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/16 11:44:44 by ohladkov         ###   ########.fr       */
+/*   Created: 2024/05/16 13:03:05 by ohladkov          #+#    #+#             */
+/*   Updated: 2024/05/16 19:06:50 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_HPP
-# define DIAMONDTRAP_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
 # include <iostream>
 # include <string>
-# include "FragTrap.hpp"
-# include "ScavTrap.hpp"
+# include "Animal.hpp"
 
-class DiamondTrap : public FragTrap, public ScavTrap
+
+class Dog : public Animal
 {
 
 	public:
 
-		DiamondTrap();
-		DiamondTrap( std::string name);
-		DiamondTrap( DiamondTrap const & src );
-		~DiamondTrap();
+		Dog();
+		Dog( Dog const & src );
+		~Dog();
 
-		DiamondTrap &		operator=( DiamondTrap const & src );
-		
-		void whoAmI();
-	private:
-		std::string	_name;
+		Dog &		operator=( Dog const & rhs );
+		void	makeSound() const;
 };
 
+std::ostream &			operator<<( std::ostream & o, Dog const & i );
 
-#endif /* ***************************************************** DIAMONDTRAP_H */
+#endif /* ************************************************************* DOG_H */

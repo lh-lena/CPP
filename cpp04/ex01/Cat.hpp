@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 10:54:28 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/16 11:44:44 by ohladkov         ###   ########.fr       */
+/*   Created: 2024/05/16 13:03:00 by ohladkov          #+#    #+#             */
+/*   Updated: 2024/05/16 18:39:05 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_HPP
-# define DIAMONDTRAP_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
 # include <iostream>
 # include <string>
-# include "FragTrap.hpp"
-# include "ScavTrap.hpp"
+# include "Animal.hpp"
 
-class DiamondTrap : public FragTrap, public ScavTrap
+class Cat : public Animal
 {
 
 	public:
 
-		DiamondTrap();
-		DiamondTrap( std::string name);
-		DiamondTrap( DiamondTrap const & src );
-		~DiamondTrap();
+		Cat();
+		Cat( Cat const & src );
+		~Cat();
 
-		DiamondTrap &		operator=( DiamondTrap const & src );
-		
-		void whoAmI();
-	private:
-		std::string	_name;
+		Cat &		operator=( Cat const & rhs );
+		void	makeSound() const;
 };
 
+std::ostream &			operator<<( std::ostream & o, Cat const & i );
 
-#endif /* ***************************************************** DIAMONDTRAP_H */
+#endif /* ************************************************************* CAT_H */

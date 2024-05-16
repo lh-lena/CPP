@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 10:57:52 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/16 10:57:52 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:07:10 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ class ScavTrap : public ClapTrap
 		ScavTrap( ScavTrap const & src );
 		~ScavTrap();
 		ScavTrap&	operator=( ScavTrap const & src );
+		void attack(const std::string& target);
+
 		void guardGate();
-		
-	private:
+	
 
 };
 

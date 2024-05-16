@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 10:54:28 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/16 11:44:44 by ohladkov         ###   ########.fr       */
+/*   Created: 2024/05/16 13:03:00 by ohladkov          #+#    #+#             */
+/*   Updated: 2024/05/16 18:59:44 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_HPP
-# define DIAMONDTRAP_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
 # include <iostream>
 # include <string>
-# include "FragTrap.hpp"
-# include "ScavTrap.hpp"
+# include "WrongAnimal.hpp"
 
-class DiamondTrap : public FragTrap, public ScavTrap
+class WrongCat : public WrongAnimal
 {
 
 	public:
 
-		DiamondTrap();
-		DiamondTrap( std::string name);
-		DiamondTrap( DiamondTrap const & src );
-		~DiamondTrap();
+		WrongCat();
+		WrongCat( WrongCat const & src );
+		~WrongCat();
 
-		DiamondTrap &		operator=( DiamondTrap const & src );
-		
-		void whoAmI();
-	private:
-		std::string	_name;
+		WrongCat &		operator=( WrongCat const & rhs );
+		void	makeSound() const;
 };
 
+std::ostream &			operator<<( std::ostream & o, WrongCat const & i );
 
-#endif /* ***************************************************** DIAMONDTRAP_H */
+#endif /* ************************************************************* CAT_H */

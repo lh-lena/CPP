@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 10:54:41 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/16 10:54:42 by ohladkov         ###   ########.fr       */
+/*   Created: 2024/05/16 10:57:55 by ohladkov          #+#    #+#             */
+/*   Updated: 2024/05/16 12:01:58 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@ ScavTrap::ScavTrap( std::string name) : ClapTrap(name)
     std::cout << "ScavTrap constructor called for " << this->_name << std::endl;
 }
 
-ScavTrap::ScavTrap( const ScavTrap & src ) : ClapTrap(src)
+ScavTrap::ScavTrap( const ScavTrap & src ) // : ClapTrap(src)
 {
     *this = src;
-    std::cout << "ScavTrap copy constructor called for " << src.getName() << std::endl;
+    std::cout << "ScavTrap copy constructor called for " << this->_name << std::endl;
 }
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "ScavTrap destructor called" << std::endl;
+    std::cout << "ScavTrap default destructor called" << std::endl;
 }
 
 
@@ -65,4 +65,8 @@ std::ostream &  operator<<( std::ostream & o, ScavTrap const & i )
 
 void    ScavTrap::guardGate() {
     std::cout << this->_name << " is guarding the gate!" << std::endl;
+}
+
+void ScavTrap::attack(const std::string& target) {
+    std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_attack_damage << " points of damage!" << std::endl;
 }

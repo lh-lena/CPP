@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 10:53:46 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/16 10:53:48 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/16 11:47:12 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ DiamondTrap::DiamondTrap()
 DiamondTrap::DiamondTrap( std::string name) : ClapTrap(name + "_clap_name"), FragTrap(name + "_clap_name"), ScavTrap(name + "_clap_name")
 {
 	this->_name = name;
-	this->_hit_pnt = FragTrap::getHitPnt();
-	this->_energy_pnt = ScavTrap::getEnergyPnt();
-	this->_attack_damage = FragTrap::getAttackDmg();
-	std::cout << "DiamondTrap constructor called for " << getName() << std::endl;
+	this->_hit_pnt = this->FragTrap::getHitPnt();
+	this->_energy_pnt = this->ScavTrap::getEnergyPnt();
+	this->_attack_damage = this->FragTrap::getAttackDmg();
+	std::cout << "DiamondTrap constructor called for " << this->_name << std::endl;
 }
 
 DiamondTrap::DiamondTrap( const DiamondTrap & src ) : ClapTrap(src._name + "_clap_name"), FragTrap(src._name + "_clap_name"), ScavTrap(src._name + "_clap_name")
 {
 	*this = src;
-	std::cout << "DiamondTrap copy constructor called for " << src.getName() << std::endl;
+	std::cout << "DiamondTrap copy constructor called for " << this->_name << std::endl;
 }
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
@@ -71,7 +71,7 @@ DiamondTrap &				DiamondTrap::operator=( DiamondTrap const & src )
 */
 
 void	DiamondTrap::whoAmI( void ) {
-	std::cout << "I am " << getName() << " and my ClapTrap name is " << ClapTrap::getName() << std::endl;
+	std::cout << "I am " << this->_name << " and my ClapTrap name is " << ClapTrap::getName() << std::endl;
 }
 
 /**

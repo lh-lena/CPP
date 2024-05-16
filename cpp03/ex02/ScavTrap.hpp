@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 10:57:27 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/16 10:57:43 by ohladkov         ###   ########.fr       */
+/*   Created: 2024/05/16 10:57:52 by ohladkov          #+#    #+#             */
+/*   Updated: 2024/05/16 12:08:13 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ class ScavTrap : public ClapTrap
 		ScavTrap( ScavTrap const & src );
 		~ScavTrap();
 		ScavTrap&	operator=( ScavTrap const & src );
+		void attack(const std::string& target);
+
 		void guardGate();
+	
 
 };
 
