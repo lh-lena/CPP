@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/16 10:53:46 by ohladkov          #+#    #+#             */
+/*   Updated: 2024/05/16 10:53:48 by ohladkov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "DiamondTrap.hpp"
 
 /*
@@ -22,7 +34,7 @@ DiamondTrap::DiamondTrap( std::string name) : ClapTrap(name + "_clap_name"), Fra
 	std::cout << "DiamondTrap constructor called for " << getName() << std::endl;
 }
 
-DiamondTrap::DiamondTrap( const DiamondTrap & src ) : ClapTrap(src)
+DiamondTrap::DiamondTrap( const DiamondTrap & src ) : ClapTrap(src._name + "_clap_name"), FragTrap(src._name + "_clap_name"), ScavTrap(src._name + "_clap_name")
 {
 	*this = src;
 	std::cout << "DiamondTrap copy constructor called for " << src.getName() << std::endl;
@@ -53,24 +65,20 @@ DiamondTrap &				DiamondTrap::operator=( DiamondTrap const & src )
 	return *this;
 }
 
-// std::ostream &			operator<<( std::ostream & o, DiamondTrap const & i )
-// {
-// 	//o << "Value = " << i.getValue();
-// 	return o;
-// }
-
 
 /*
-** --------------------------------- METHODS ----------------------------------
+** --------------------------------- Member Function ----------------------------------
 */
 
 void	DiamondTrap::whoAmI( void ) {
-	std::cout << "I am " << getName() << "and my ClapTrap name is " << ClapTrap::getName() << std::endl;
+	std::cout << "I am " << getName() << " and my ClapTrap name is " << ClapTrap::getName() << std::endl;
 }
 
 /**
  * By using virtual inheritance, we prevent multiple copies of the ClapTrap base class from being included in DiamondTrap, 
  * ensuring that the name attribute is shared between FragTrap and ScavTrap in DiamondTrap. This avoids the diamond problem
  * and ensures that there's only one instance of name in DiamondTrap.
+ - https://www.youtube.com/watch?v=Fva8M10oGoA&list=PLVlQHNRLflP8_DGKcMoRw-TYJJALgGu4J&index=57
+
  */
 /* ************************************************************************** */

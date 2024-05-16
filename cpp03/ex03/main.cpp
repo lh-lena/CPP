@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/16 10:54:37 by ohladkov          #+#    #+#             */
+/*   Updated: 2024/05/16 10:54:37 by ohladkov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
@@ -10,7 +22,7 @@ int main(void)
 	DiamondTrap dt("Diamond");
 
 	dt.attack("A");
-    dt.whoAmI();           // Output: I am Diamond!
-    dt.highFivesGuys();    // Output: Diamond: Positive high fives request!
-    dt.guardGate();        // Output: Diamond: I am the gate guardian!
+    dt.whoAmI();
+    dt.highFivesGuys();
+    dt.guardGate();
 }
