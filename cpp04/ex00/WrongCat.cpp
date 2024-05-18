@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:02:57 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/16 19:20:26 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/18 22:52:04 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ std::ostream &			operator<<( std::ostream & o, WrongCat const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	WrongCat::makeSound() const {
-	std::cout << "Definitely not  the cat sound!" << std::endl;
-}
+// void	WrongCat::makeSound() const {
+// 	std::cout << "Definitely not  the cat sound!" << std::endl;
+// }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

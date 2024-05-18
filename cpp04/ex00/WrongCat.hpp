@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:03:00 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/16 18:59:44 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/18 22:52:18 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class WrongCat : public WrongAnimal
 		~WrongCat();
 
 		WrongCat &		operator=( WrongCat const & rhs );
-		void	makeSound() const;
+		// void	makeSound() const;
 };
 
 std::ostream &			operator<<( std::ostream & o, WrongCat const & i );
