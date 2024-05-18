@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:02:44 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/16 19:03:40 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/18 17:23:07 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,28 @@
 
 int main()
 {
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound();
-    j->makeSound();
-    meta->makeSound();
-    delete meta;
-    delete j;
-    delete i;
-    return 0;
+    // Brain* id = new Brain();
+
+    // std::cout << *id << std::endl;
+    // delete id;
+	int n = 3;
+	Animal* ams[n];
+	for (int i = 0; i < n; i++)
+	{
+		if (i % 2 == 0)
+			ams[i] = new Dog();
+		else
+			ams[i] = new Cat();
+	}
+
+	for(int i = 0; i < n; i++)
+	{
+		ams[i]->makeSound();
+	}
+	for(int i = 0; i < n; i++)
+	{
+		delete ams[i];
+	}
+
+	return 0;
 }

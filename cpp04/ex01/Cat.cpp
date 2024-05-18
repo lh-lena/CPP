@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:02:57 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/16 18:40:19 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/18 15:55:59 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cat::Cat()
+Cat::Cat() : _brain(new Brain())
 {
 	setType("Cat");
 	std::cout << "Default Cat constractor called" << std::endl;
@@ -24,7 +24,9 @@ Cat::Cat()
 
 Cat::Cat( const Cat & src )
 {
-	*this = src;
+	if (_brain)
+		delete _brain;
+	_brain = new Brain(*src._brain);
     std::cout << "Cat copy constructor called" << std::endl;
 
 }
@@ -36,6 +38,8 @@ Cat::Cat( const Cat & src )
 
 Cat::~Cat()
 {
+	if (_brain)
+		delete	_brain;
 	std::cout << "Cat destructor called" << std::endl;
 }
 
@@ -48,7 +52,11 @@ Cat &				Cat::operator=( Cat const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->type = rhs.getType();
+		Animal::operator=(rhs);
+		if (_brain)
+			delete _brain;
+		_brain = new Brain(*rhs._brain);
+        std::cout << "Cat copy assignment operator called" << std::endl;
 	}
 	return *this;
 }

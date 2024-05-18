@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:03:05 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/16 19:06:50 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/18 13:17:19 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 # include <string>
 # include "Animal.hpp"
-
+# include "Brain.hpp"
 
 class Dog : public Animal
 {
@@ -29,6 +29,9 @@ class Dog : public Animal
 
 		Dog &		operator=( Dog const & rhs );
 		void	makeSound() const;
+
+	private:
+		Brain* 	_brain;
 };
 
 std::ostream &			operator<<( std::ostream & o, Dog const & i );

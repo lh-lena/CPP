@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:02:44 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/16 19:26:30 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/16 19:37:21 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,11 +89,11 @@ int main() {
     i->makeSound();
     j->makeSound();
     meta->makeSound();
-    
+
     delete meta;
     delete j;
     delete i;
-    
+
     // std::cout << "\n\tTesting Copy Constructor:" << std::endl;
     // testCopyConstructor();
 
