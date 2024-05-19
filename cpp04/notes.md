@@ -121,3 +121,6 @@ int main()
     a.f();           // virtual dispatch to Concrete::f()
     // Abstract2 a2; // Error: abstract class (final overrider of g() is pure)
 }
+
+the default Animal class should not be instantiable:
+ - https://stackoverflow.com/questions/19090328/protected-constructor-to-make-base-class-not-instantiable
