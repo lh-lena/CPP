@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:02:57 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/18 15:55:59 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/19 13:10:19 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Cat::Cat() : _brain(new Brain())
 	std::cout << "Default Cat constractor called" << std::endl;
 }
 
-Cat::Cat( const Cat & src )
+Cat::Cat( const Cat & src ) : AAnimal(src)
 {
 	if (_brain)
 		delete _brain;
@@ -52,7 +52,7 @@ Cat &				Cat::operator=( Cat const & rhs )
 {
 	if ( this != &rhs )
 	{
-		Animal::operator=(rhs);
+		AAnimal::operator=(rhs);
 		if (_brain)
 			delete _brain;
 		_brain = new Brain(*rhs._brain);

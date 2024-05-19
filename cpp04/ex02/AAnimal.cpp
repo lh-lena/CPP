@@ -6,25 +6,25 @@
 /*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:02:50 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/18 23:01:56 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/19 13:06:40 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Animal::Animal() : type("[animal-type]")
+AAnimal::AAnimal() : type("[AAnimal-type]")
 {
-	std::cout << "Default Animal constructor called" << std::endl;
+	std::cout << "Default AAnimal constructor called" << std::endl;
 }
 
-Animal::Animal( const Animal & src )
+AAnimal::AAnimal( const AAnimal & src )
 {
 	*this = src;
-    std::cout << "Animal copy constructor called for " << this->type << std::endl;
+    std::cout << "AAnimal copy constructor called for " << this->type << std::endl;
 }
 
 
@@ -32,9 +32,9 @@ Animal::Animal( const Animal & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
-	std::cout << "Animal destructor called" << std::endl;
+	std::cout << "AAnimal destructor called" << std::endl;
 }
 
 
@@ -42,17 +42,17 @@ Animal::~Animal()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Animal &				Animal::operator=( Animal const & rhs )
+AAnimal &				AAnimal::operator=( AAnimal const & rhs )
 {
 	if ( this != &rhs )
 	{
 		this->type = rhs.getType();
-		std::cout << "Animal copy assignment operator called" << std::endl;
+		std::cout << "AAnimal copy assignment operator called" << std::endl;
 	}
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Animal const & i )
+std::ostream &			operator<<( std::ostream & o, AAnimal const & i )
 {
 	o << "Type = " << i.getType();
 	return o;
@@ -63,19 +63,19 @@ std::ostream &			operator<<( std::ostream & o, Animal const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Animal::makeSound() const {
-	std::cout << "Random animal's sound" << std::endl;
+void	AAnimal::makeSound() const {
+	std::cout << "Random AAnimal's sound" << std::endl;
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string Animal::getType() const {
+std::string AAnimal::getType() const {
 	return (type);
 }
 
-void			Animal::setType(std::string type) {
+void			AAnimal::setType(std::string type) {
 	this->type = type;
 }
 

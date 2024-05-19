@@ -2,6 +2,7 @@ NAME	= a.out
 
 SRC	= 	main.cpp \
 		Animal.cpp \
+		AAnimal.cpp \
 		Cat.cpp \
 		Brain.cpp \
 		Dog.cpp \

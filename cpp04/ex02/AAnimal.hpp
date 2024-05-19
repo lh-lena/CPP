@@ -6,27 +6,27 @@
 /*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:02:54 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/18 23:02:05 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/19 13:06:25 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef AAnimal_HPP
+# define AAnimal_HPP
 
 # include <iostream>
 # include <string>
 
-class Animal
+class AAnimal
 {
 
 	public:
 
-		Animal();
-		Animal( Animal const & src );
-		virtual ~Animal();
+		AAnimal();
+		AAnimal( AAnimal const & src );
+		virtual ~AAnimal();
 
-		Animal &		operator=( Animal const & rhs );
-		virtual	void	makeSound() const;
+		AAnimal &		operator=( AAnimal const & rhs );
+		virtual	void	makeSound() const = 0; //pure-specifie
 		std::string		getType() const;
 		void			setType(std::string type);
 
@@ -34,7 +34,7 @@ class Animal
 		std::string type;
 };
 
-std::ostream &			operator<<( std::ostream & o, Animal const & i );
+std::ostream &			operator<<( std::ostream & o, AAnimal const & i );
 
 /**
  * Use the virtual keyword in the base class to enable dynamic binding.
@@ -42,4 +42,4 @@ std::ostream &			operator<<( std::ostream & o, Animal const & i );
  * Ensure that the base class destructor is virtual to handle proper cleanup.
  */
 
-#endif /* ********************************************************** ANIMAL_H */
+#endif /* ********************************************************** AAnimal_H */

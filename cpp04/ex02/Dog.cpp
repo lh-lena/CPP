@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:03:03 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/18 15:44:25 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/19 13:09:53 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Dog::Dog() : _brain(new Brain())
 	std::cout << "Default Dog constractor called" << std::endl;
 }
 
-Dog::Dog( const Dog & src ) : Animal(src)
+Dog::Dog( const Dog & src ) : AAnimal(src)
 {
 	if (_brain)
 		delete _brain;
@@ -52,7 +52,7 @@ Dog &				Dog::operator=( Dog const & rhs )
 {
 	if ( this != &rhs )
 	{
-		Animal::operator=(rhs);// this->type = rhs.getType();
+		AAnimal::operator=(rhs);// this->type = rhs.getType();
 		if (_brain)
 			delete _brain;
 		_brain = new Brain(*rhs._brain);
