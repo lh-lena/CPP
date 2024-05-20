@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 17:25:46 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/19 18:22:48 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/20 16:26:34 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,15 +68,15 @@ std::ostream &			operator<<( std::ostream & o, AMateria const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-AMateria*	AMateria::clone() const
-{
+// AMateria*	AMateria::clone() const
+// {
 	
-}
+// }
 
-void	AMateria::use(ICharacter& target)
-{
+// void	AMateria::use(ICharacter& target)
+// {
 	
-}
+// }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

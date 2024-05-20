@@ -1,6 +1,12 @@
 
 CPP Module 04
 
+The project covers:
+"Virtual" keyword
+Deep copy vs shallow copy
+Abstract classes
+Interfaces
+
 Subtype polymorphism, abstract classes, interfaces
 
 
@@ -130,3 +136,33 @@ the default Animal class should not be instantiable:
  In C++98, interfaces can be implemented using pure abstract classes. These classes contain only pure virtual functions and no data members or non-virtual member functions. They define a contract that derived classes must fulfill, similar to interfaces in other programming languages. Below is an explanation and an example of how to implement and use pure abstract classes as interfaces in C++98.
 
  In other programming languages, interfaces are a way to define a contract that classes must follow. An interface specifies what methods a class must implement, but it does not provide the method implementations. This ensures that any class that implements the interface will have certain methods available, promoting consistency and enabling polymorphism.
+
+https://www.youtube.com/watch?v=wE0_F4LpGVc
+
+
+
+
+
+https://www.geeksforgeeks.org/pure-virtual-destructor-c/?ref=lbp
+
+ Note: Only Destructors can be Virtual. Constructors cannot be declared as virtual, this is because if you try to override a constructor by declaring it in a base/super class and call it in the derived/sub class with same functionalities it will always give an error as overriding means a feature that lets us to use a method from the parent class in the child class which is not possible. 
+
+
+** Shallow Copy and Deep Copy in C++
+https://www.geeksforgeeks.org/shallow-copy-and-deep-copy-in-c/?ref=lbp
+
+// Copy Constructor
+Geeks Obj1(Obj);
+or
+Geeks Obj1 = Obj;
+
+// Default assignment operator
+Geeks Obj2;
+Obj2 = Obj1;
+
+https://medium.com/@md.abir1203/cpp04-navigating-deep-and-shallow-copy-in-real-life-544f91d4647d
+
+https://medium.com/@antwang/builder-pattern-in-c-the-right-way-e943abbe0d2d
+
+
+

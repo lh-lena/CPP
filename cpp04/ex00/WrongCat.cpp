@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:02:57 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/18 22:52:04 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/20 17:02:15 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ WrongCat &				WrongCat::operator=( WrongCat const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->type = rhs.getType();
+		this->type = rhs.type;
 	}
 	std::cout << "WrongCat copy assignment operator called" << std::endl;
 	return *this;
@@ -65,9 +65,9 @@ std::ostream &			operator<<( std::ostream & o, WrongCat const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-// void	WrongCat::makeSound() const {
-// 	std::cout << "Definitely not  the cat sound!" << std::endl;
-// }
+void	WrongCat::makeSound() const {
+	std::cout << "meow meoe" << std::endl;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

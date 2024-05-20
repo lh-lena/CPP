@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:02:44 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/16 19:37:21 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/20 17:15:25 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,14 @@ void testPolymorphism() {
 }
 
 void    testWrongCat() {
-    const WrongAnimal* i = new WrongCat();
+    const WrongAnimal* i = new WrongAnimal();
+    const WrongAnimal* j = new WrongCat();
     std::cout << "Type: " << i->getType() << " " << std::endl;
     i->makeSound();
+    std::cout << "Type: " << j->getType() << " " << std::endl;
+    j->makeSound();
     delete i;
+    delete j;
 }
 
 int main() {
@@ -94,17 +98,17 @@ int main() {
     delete j;
     delete i;
 
-    // std::cout << "\n\tTesting Copy Constructor:" << std::endl;
-    // testCopyConstructor();
+    std::cout << "\n\tTesting Copy Constructor:" << std::endl;
+    testCopyConstructor();
 
-    // std::cout << "\n\tTesting Assignment Operator:" << std::endl;
-    // testAssignmentOperator();
+    std::cout << "\n\tTesting Assignment Operator:" << std::endl;
+    testAssignmentOperator();
 
-    // std::cout << "\n\tTesting Polymorphism:" << std::endl;
-    // testPolymorphism();
+    std::cout << "\n\tTesting Polymorphism:" << std::endl;
+    testPolymorphism();
 
-    // std::cout << "\n\tTesting WrongCat class:" << std::endl;
-    // testWrongCat();
+    std::cout << "\n\tTesting WrongCat class:" << std::endl;
+    testWrongCat();
 
     return 0;
 }

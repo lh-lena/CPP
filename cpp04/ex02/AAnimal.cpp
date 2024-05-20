@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:02:50 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/19 13:06:40 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/20 22:50:21 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-AAnimal::AAnimal() : type("[AAnimal-type]")
+AAnimal::AAnimal() : type("[AAnimal]")
 {
 	std::cout << "Default AAnimal constructor called" << std::endl;
 }
@@ -64,7 +64,7 @@ std::ostream &			operator<<( std::ostream & o, AAnimal const & i )
 */
 
 void	AAnimal::makeSound() const {
-	std::cout << "Random AAnimal's sound" << std::endl;
+	std::cout << "Random AAnimal sound" << std::endl;
 }
 
 /*

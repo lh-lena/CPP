@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 18:18:44 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/19 18:40:02 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/20 23:04:46 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,10 @@ class IMateriaSource
 
 	public:
 
-		IMateriaSource();
-		IMateriaSource( IMateriaSource const & src );
 		virtual ~IMateriaSource() {}
-
-		IMateriaSource &		operator=( IMateriaSource const & rhs );
 		virtual void learnMateria(AMateria*) = 0;
 		virtual AMateria* createMateria(std::string const & type) = 0;
 
 };
-
-std::ostream &			operator<<( std::ostream & o, IMateriaSource const & i );
 
 #endif /* ************************************************** IMATERIASOURCE_H */

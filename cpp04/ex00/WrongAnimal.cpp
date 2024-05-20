@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:02:50 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/18 22:52:38 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/20 22:51:42 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ std::ostream &			operator<<( std::ostream & o, WrongAnimal const & i )
 */
 
 void	WrongAnimal::makeSound() const {
-	std::cout << "Random WrongAnimal's sound" << std::endl;
+	std::cout << "Random WrongAnimal sound" << std::endl;
 }
 
 /*

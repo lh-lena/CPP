@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:02:57 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/18 15:55:59 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/20 22:43:30 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@
 
 Cat::Cat() : _brain(new Brain())
 {
-	setType("Cat");
+	this->setType("Cat");
 	std::cout << "Default Cat constractor called" << std::endl;
 }
 
 Cat::Cat( const Cat & src )
 {
-	if (_brain)
-		delete _brain;
-	_brain = new Brain(*src._brain);
-    std::cout << "Cat copy constructor called" << std::endl;
-
+	if (this->_brain)
+		delete this->_brain;
+	this->_brain = new Brain(*src._brain);
+	this->type = src.type;
+	std::cout << "Cat copy constructor called" << std::endl;
 }
 
 
@@ -38,8 +38,7 @@ Cat::Cat( const Cat & src )
 
 Cat::~Cat()
 {
-	if (_brain)
-		delete	_brain;
+	delete	_brain;
 	std::cout << "Cat destructor called" << std::endl;
 }
 
@@ -52,13 +51,13 @@ Cat &				Cat::operator=( Cat const & rhs )
 {
 	if ( this != &rhs )
 	{
-		Animal::operator=(rhs);
-		if (_brain)
-			delete _brain;
-		_brain = new Brain(*rhs._brain);
+		if (this->_brain)
+			delete this->_brain;
+		this->_brain = new Brain(*rhs._brain);
+		this->type = rhs.type;
         std::cout << "Cat copy assignment operator called" << std::endl;
 	}
-	return *this;
+	return (*this);
 }
 
 std::ostream &			operator<<( std::ostream & o, Cat const & i )

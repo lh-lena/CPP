@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:02:54 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/19 17:07:52 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/20 22:59:27 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ class AAnimal
 
 		AAnimal();
 		AAnimal( AAnimal const & src );
-		virtual ~AAnimal();
+		virtual ~AAnimal() = 0;
 
 		AAnimal &		operator=( AAnimal const & rhs );
 		virtual	void	makeSound() const = 0; //pure-specifie
-		std::string		getType() const;
+		virtual std::string		getType() const;
 		void			setType(std::string type);
 
 	protected:

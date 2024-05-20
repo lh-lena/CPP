@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:02:50 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/16 19:20:45 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/20 22:51:31 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ std::ostream &			operator<<( std::ostream & o, Animal const & i )
 */
 
 void	Animal::makeSound() const {
-	std::cout << "Random animal's sound" << std::endl;
+	std::cout << "Random animal sound" << std::endl;
 }
 
 /*
