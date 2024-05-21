@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:03:03 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/20 22:47:06 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/21 17:16:56 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ Dog::Dog() : _brain(new Brain())
 
 Dog::Dog( const Dog & src )
 {
-	if (this->_brain)
-		delete this->_brain;
 	this->_brain = new Brain(*src._brain);
 	this->type = src.getType();
     std::cout << "Dog copy constructor called" << std::endl;
@@ -39,8 +37,7 @@ Dog::Dog( const Dog & src )
 
 Dog::~Dog()
 {
-	if (this->_brain)
-		delete	this->_brain;
+	delete	_brain;
 	std::cout << "Dog destractor called" << std::endl;
 }
 
@@ -81,5 +78,14 @@ void	Dog::makeSound() const {
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+void	Dog::setIdea(int index, const std::string & idea)
+{
+	this->_brain->setIdea(index, idea);
+}
+
+std::string		Dog::getIdea(int index) const
+{
+	return (this->_brain->getIdea(index));
+}
 
 /* ************************************************************************** */

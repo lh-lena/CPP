@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:03:00 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/19 13:06:52 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/21 16:30:55 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ class Cat : public AAnimal
 
 		Cat &		operator=( Cat const & rhs );
 		void		makeSound() const;
+		std::string	getIdea(int index) const;
+		void		setIdea(int index, const std::string & idea);
 
 	private:
 		Brain* 	_brain;

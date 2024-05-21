@@ -6,7 +6,9 @@
 
 Brain::Brain()
 {
-	for (int i = 0; i < 100; i++) {
+	nbrOfIdeas = 100;
+	ideas = new std::string[nbrOfIdeas];
+	for (int i = 0; i < nbrOfIdeas; i++) {
         ideas[i] = "Default Idea";
     }
 	std::cout << "Default Brain constructor called" << std::endl; 
@@ -14,7 +16,11 @@ Brain::Brain()
 
 Brain::Brain( const Brain & src )
 {
-	*this = src;
+	this->nbrOfIdeas = src.nbrOfIdeas;
+	this->ideas = new std::string[this->nbrOfIdeas];
+	for (int i = 0; i < this->nbrOfIdeas; i++) {
+		this->ideas[i] = src.ideas[i];
+	}
     std::cout << "Brain copy constructor called" << std::endl;
 }
 
@@ -24,6 +30,7 @@ Brain::Brain( const Brain & src )
 
 Brain::~Brain()
 {
+	delete[] ideas;
 	std::cout << "Brain destructor called" << std::endl;
 }
 
@@ -35,7 +42,11 @@ Brain &				Brain::operator=( Brain const & rhs )
 {
 	if ( this != &rhs )
 	{
-		for (int i = 0; i < 100; i++) {
+		this->nbrOfIdeas = rhs.nbrOfIdeas;
+		delete [] ideas;
+		this->ideas = new std::string[this->nbrOfIdeas];
+		ideas = new std::string[this->nbrOfIdeas];
+		for (int i = 0; i < this->nbrOfIdeas; i++) {
 			this->ideas[i] = rhs.ideas[i];
 		}
         std::cout << "Brain copy assignment operator called" << std::endl;
@@ -45,7 +56,7 @@ Brain &				Brain::operator=( Brain const & rhs )
 
 std::ostream &			operator<<( std::ostream & o, Brain const & i )
 {
-	for (int n = 0; n < 100; n++) {
+	for (int n = 0; n < i.nbrOfIdeas; n++) {
 		o << i.getIdea(n) << std::endl;
 	}
 	return o;

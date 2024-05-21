@@ -16,9 +16,9 @@ class Brain
 		Brain &		operator=( Brain const & rhs );
 		std::string	getIdea(int index) const;
 		void		setIdea(int index, const std::string & idea);
-
+		int			nbrOfIdeas;
 	private:
-		std::string		ideas[100];
+		std::string*	ideas;
 };
 
 std::ostream &			operator<<( std::ostream & o, Brain const & i );

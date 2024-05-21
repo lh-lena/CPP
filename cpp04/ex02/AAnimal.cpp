@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:02:50 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/20 22:50:21 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/21 16:47:15 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	AAnimal::makeSound() const {
 */
 
 std::string AAnimal::getType() const {
-	return (type);
+	return (this->type);
 }
 
 void			AAnimal::setType(std::string type) {

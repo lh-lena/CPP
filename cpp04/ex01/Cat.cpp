@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:02:57 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/20 22:43:30 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/21 17:20:42 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ Cat::Cat() : _brain(new Brain())
 
 Cat::Cat( const Cat & src )
 {
-	if (this->_brain)
-		delete this->_brain;
 	this->_brain = new Brain(*src._brain);
 	this->type = src.type;
 	std::cout << "Cat copy constructor called" << std::endl;
@@ -79,5 +77,14 @@ void	Cat::makeSound() const {
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+void	Cat::setIdea(int index, const std::string & idea)
+{
+	this->_brain->setIdea(index, idea);
+}
+
+std::string		Cat::getIdea(int index) const
+{
+	return (this->_brain->getIdea(index));
+}
 
 /* ************************************************************************** */

@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:02:44 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/19 17:14:47 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/21 17:09:46 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 int main()
 {
-		// it doesn't allowed ->variable type 'AAnimal' is an abstract class
+	// 	it doesn't allowed ->variable type 'AAnimal' is an abstract class
 	// AAnimal ams;
 	// ams.makeSound();
 
@@ -46,5 +46,7 @@ int main()
 		delete ams[i];
 	}
 
-	return 0;
+	
+    return 0;
 }
+

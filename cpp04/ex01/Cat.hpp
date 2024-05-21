@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:03:00 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/18 11:56:16 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/21 17:10:56 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ class Cat : public Animal
 
 		Cat &		operator=( Cat const & rhs );
 		void		makeSound() const;
+		std::string	getIdea(int index) const;
+		void		setIdea(int index, const std::string & idea);
 
 	private:
 		Brain* 	_brain;
