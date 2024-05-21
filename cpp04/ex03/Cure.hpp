@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 18:17:31 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/19 18:55:42 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/21 19:45:56 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,5 @@ class Cure : public AMateria
 		virtual void use(ICharacter& target);
 
 };
-
-std::ostream &			operator<<( std::ostream & o, Cure const & i );
 
 #endif /* ************************************************************ CURE_H */

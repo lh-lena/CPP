@@ -1,13 +1,13 @@
 NAME	= a.out
 
 SRC	= 	main.cpp \
-		Animal.cpp \
-		AAnimal.cpp \
-		Cat.cpp \
-		Brain.cpp \
-		Dog.cpp \
-		WrongCat.cpp \
-		WrongAnimal.cpp \
+		AMateria.cpp \
+		Cure.cpp \
+		Ice.cpp \
+		ICharacter.cpp \
+		Character.cpp \
+		IMateriaSource.cpp \
+		MateriaSource.cpp 
 
 
 OBJ	= ${SRC:.cpp=.o}

@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:02:44 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/19 18:53:46 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/21 19:23:12 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include "ICharacter.hpp"
 #include "Character.hpp"
 #include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
+
 
 
 int main()

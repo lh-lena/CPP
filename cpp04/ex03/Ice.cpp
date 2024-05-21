@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 18:17:36 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/19 18:35:59 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/21 19:46:19 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,20 +52,13 @@ Ice &				Ice::operator=( Ice const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Ice const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
-
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
 AMateria*	Ice::clone() const
 {
-	return (new Ice(*this));
+	return (new Ice());
 }
 
 void	Ice::use(ICharacter& target)

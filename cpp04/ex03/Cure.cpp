@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 18:17:19 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/19 18:35:32 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/21 19:45:52 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,6 @@ Cure &				Cure::operator=( Cure const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Cure const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
@@ -65,7 +59,7 @@ std::ostream &			operator<<( std::ostream & o, Cure const & i )
 
 AMateria*	Cure::clone() const
 {
-	return (new Cure(*this));
+	return (new Cure());
 }
 
 void	Cure::use(ICharacter& target)

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/21 19:15:41 by ohladkov          #+#    #+#             */
+/*   Updated: 2024/05/21 19:15:42 by ohladkov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BRAIN_HPP
 # define BRAIN_HPP
 
@@ -16,9 +28,9 @@ class Brain
 		Brain &		operator=( Brain const & rhs );
 		std::string	getIdea(int index) const;
 		void		setIdea(int index, const std::string & idea);
-
+		int			nbrOfIdeas;
 	private:
-		std::string		ideas[100];
+		std::string*	ideas;
 };
 
 std::ostream &			operator<<( std::ostream & o, Brain const & i );
