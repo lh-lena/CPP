@@ -12,14 +12,13 @@ Subtype polymorphism, abstract classes, interfaces
 
  * https://www.geeksforgeeks.org/cpp-polymorphism/?ref=lbp
  * 
- * Base Class: The class from which other classes inherit.
- * Derived Class: A class that inherits from the base class.
- * Virtual Functions: Functions in the base class that can be overridden
+ * Base Class:                   The class from which other classes inherit.
+ * Derived Class:                A class that inherits from the base class.
+ * Virtual Functions:            Functions in the base class that can be overridden
  *  in derived classes to provide specific implementations.
- * Pure Virtual Functions: Virtual functions with no implementation in the base class,
+ * Pure Virtual Functions:         Virtual functions with no implementation in the base class,
  *  making the base class abstract.
- * Virtual Destructors: Ensure that the destructor of the derived class is called 
- * when an object is deleted through a base class pointer.
+ * Virtual Destructors:            Ensure that the destructor of the derived class is called when an object is deleted through a base class pointer.
  * 
  * virtual void makeSound() const = 0; // Pure virtual function | in class Animal
  * 
@@ -49,6 +48,7 @@ class GFG_Child : public GFG_Base
 ** abstract classes
     https://www.geeksforgeeks.org/abstraction-in-cpp/?ref=lbp
     https://www.ibm.com/docs/en/zos/2.4.0?topic=only-abstract-classes-c
+    https://www.simplilearn.com/tutorials/cpp-tutorial/abstract-class-in-cpp
 
     An abstract class is a class that is designed to be specifically used as a base class. An abstract class contains at least one pure virtual function. You declare a pure virtual function by using a pure specifier (= 0) in the declaration of a virtual member function in the class declaration.
 
@@ -58,6 +58,8 @@ public:
 };
 
 An abstract class inherited the pure virtual function from base class.
+
+Data abstraction can be used to protect data from being accessed by unauthorized methods.
 
 Note that you can derive an abstract class from a nonabstract class, and you can override a non-pure virtual function with a pure virtual function.
 
@@ -163,6 +165,8 @@ Obj2 = Obj1;
 https://medium.com/@md.abir1203/cpp04-navigating-deep-and-shallow-copy-in-real-life-544f91d4647d
 
 https://medium.com/@antwang/builder-pattern-in-c-the-right-way-e943abbe0d2d
+
+
 
 
 
