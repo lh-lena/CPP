@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:02:50 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/21 16:47:15 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/22 11:37:02 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ std::ostream &			operator<<( std::ostream & o, AAnimal const & i )
 */
 
 void	AAnimal::makeSound() const {
-	std::cout << "Random AAnimal sound" << std::endl;
+	// std::cout << "Random AAnimal sound" << std::endl;
 }
 
 /*
