@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 19:18:25 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/21 19:38:22 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/22 13:18:04 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,28 @@
 
 Character::Character()
 {
-	std::cout << "Default Character constructor called" << std::endl;
-
+	// std::cout << "Default Character constructor called" << std::endl;
 }
 
 Character::Character( std::string const & name ) : _name(name)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		inventory[i] = NULL;
+		_inventory[i] = NULL;
 	}
-	std::cout << "Parametric Character constructor called for" << name << std::endl;
+	// std::cout << "Parametric Character constructor called for " << name << std::endl;
 }
 
 Character::Character( const Character & src ) :_name(src._name)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (src.inventory[i])
-			inventory[i] = src.inventory[i]->clone();
+		if (src._inventory[i])
+			_inventory[i] = src._inventory[i]->clone();
 		else
-			inventory[i] = NULL;
+			_inventory[i] = NULL;
 	}
-	std::cout << "Character copy constructor called for" << src._name << std::endl;
+	// std::cout << "Character copy constructor called for " << src._name << std::endl;
 }
 
 
@@ -50,11 +49,10 @@ Character::Character( const Character & src ) :_name(src._name)
 
 Character::~Character()
 {
-	for (int i = 0; i < 4; ++i) {
-		if (inventory[i])
-			delete inventory[i];
-	}
-	std::cout << "Character destructor called" << std::endl;
+	for (int i = 0; i < 4; i++) {
+		delete _inventory[i];
+}
+	// std::cout << "Character destructor called" << std::endl;
 }
 
 
@@ -68,14 +66,14 @@ Character &				Character::operator=( Character const & rhs )
 	{
 		_name = rhs._name;
 		for (int i = 0; i < 4; i++) {
-			if (inventory[i])
-				delete inventory[i];
-			if (rhs.inventory[i])
-				inventory[i] = rhs.inventory[i]->clone();
+			if (_inventory[i])
+				delete _inventory[i];
+			if (rhs._inventory[i])
+				_inventory[i] = rhs._inventory[i]->clone();
 			else
-				inventory[i] = NULL;
+				_inventory[i] = NULL;
 		}
-		std::cout << "Character copy assignment operator called" << std::endl;
+		// std::cout << "Character copy assignment operator called" << std::endl;
 	}
 	return (*this);
 }
@@ -95,26 +93,38 @@ void	Character::equip(AMateria* m)
 		return ;
 	for (int i = 0; i < 4; i++)
 	{
-		if (!inventory[i])
+		if (!_inventory[i])
 		{
-			inventory[i] = m;
-			break ;
+			_inventory[i] = m;
+			return ;
 		}
 	}
+	std::cout << "The _inventory is full" << std::endl;
 }
 
 void	Character::unequip(int idx)
 {
 	if (idx >= 0 && idx < 4)
-		inventory[idx] = NULL;
+	{
+		_inventory[idx] = NULL;
+		std::cout << "unequiped _inventory with index " << idx << std::endl;
+
+		return ;
+	}
+	std::cout << "unequip(): Invalid index" << std::endl;
 }
 
 void	Character::use(int idx, ICharacter& target)
 {
-	if (idx >= 0 && idx > 4)
+	if (idx >= 0 && idx < 4)
 	{
-		this->inventory[idx]->use(target);
+		if (this->_inventory[idx])
+		{
+			this->_inventory[idx]->use(target);
+			return ; 
+		}
 	}
+	std::cout << "use(): Invalid index" << std::endl; 
 }
 
 /*

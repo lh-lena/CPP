@@ -4,9 +4,7 @@ SRC	= 	main.cpp \
 		AMateria.cpp \
 		Cure.cpp \
 		Ice.cpp \
-		ICharacter.cpp \
 		Character.cpp \
-		IMateriaSource.cpp \
 		MateriaSource.cpp 
 
 
@@ -14,7 +12,7 @@ OBJ	= ${SRC:.cpp=.o}
 
 CPP	= c++
 
-FLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98 -g -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98 
 
 RM	= rm -f
 

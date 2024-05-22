@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 19:18:31 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/21 19:37:36 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/22 13:14:05 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class Character : public ICharacter
 		void 				use(int idx, ICharacter& target);
 
 	private:
-		AMateria 		*inventory[4];
+		AMateria 		*_inventory[4];
 		std::string		_name;
 };
 

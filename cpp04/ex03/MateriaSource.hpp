@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 19:22:33 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/21 19:40:38 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/22 13:14:49 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,8 @@ class MateriaSource : public IMateriaSource
 		AMateria* createMateria(std::string const & type);
 	
 	private:
-		AMateria* materias[4];
+		AMateria* _materias[4];
 
 };
-
-std::ostream &			operator<<( std::ostream & o, MateriaSource const & i );
 
 #endif /* *************************************************** MATERIASOURCE_H */

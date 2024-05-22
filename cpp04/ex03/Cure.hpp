@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 18:17:31 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/21 19:45:56 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/22 12:23:19 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ class Cure : public AMateria
 
 		Cure();
 		Cure( Cure const & src );
-		virtual ~Cure();
+		~Cure();
 
 		Cure &		operator=( Cure const & rhs );
-		virtual	AMateria* clone() const;
-		virtual void use(ICharacter& target);
+		AMateria* clone() const;
+		void use(ICharacter& target);
 
 };
 

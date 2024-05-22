@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 19:18:58 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/05/21 19:18:59 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/05/22 12:22:28 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <iostream>
 # include <string>
 # include "AMateria.hpp"
+
+
+class AMateria;  // Forward declaration
 
 class ICharacter
 {
