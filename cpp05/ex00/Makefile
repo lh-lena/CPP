@@ -14,7 +14,7 @@ all:	 ${NAME}
 ${NAME}:	${OBJ}
 	$(CPP) $(FLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp Makefile
 	$(CPP) $(FLAGS) -c -o $@ $<
 
 clean:
