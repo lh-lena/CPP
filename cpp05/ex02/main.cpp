@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 22:33:20 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/06/18 00:09:00 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/06/18 12:25:25 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include <cstdlib> // for srand and rand
+#include <ctime> // for time
 
 int main(void)
 {
-	srand(time(NULL));
+	std::srand(time(NULL));
 
 	ShrubberyCreationForm shrubbery("Home");
 	RobotomyRequestForm robotomy("Morty");
