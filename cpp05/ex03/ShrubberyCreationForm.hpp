@@ -22,7 +22,7 @@ public:
 private:
 	ShrubberyCreationForm();
 	std::string 	_target;
-	virtual void	performAction() const;
+	void	performAction() const;
 };
 
 #endif //SHRUBBERYCREATIONFORM_HPP
