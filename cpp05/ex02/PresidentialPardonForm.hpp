@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:41:29 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/06/17 22:21:23 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/06/18 14:24:06 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 private:
 	PresidentialPardonForm();
 	std::string		_target;
-	virtual void	performAction() const;
+	void	performAction() const;
 };
 
 #endif // PRESIDENTIALPARDONFORM_HPP

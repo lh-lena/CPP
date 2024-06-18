@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 18:39:59 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/06/18 12:28:12 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/06/18 14:24:11 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 private:
 	RobotomyRequestForm();
 	std::string _target;
-	virtual void	performAction() const;
+	void	performAction() const;
 };
 
 #endif // ROBOTOMYREQUESTFORM_HPP
