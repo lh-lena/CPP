@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 18:39:59 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/06/17 22:20:44 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/06/18 12:31:03 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include "AForm.hpp"
 #include <string>
+#include <cstdlib> // for srand and rand
+#include <ctime> // for time
 
 class RobotomyRequestForm : public AForm {
 public:

@@ -2,7 +2,7 @@
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target)
 : AForm("RobotomyRequestForm", 72, 45), _target(target) {
-	std::srand(std::time(nullptr));
+	std::srand(std::time(NULL));
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
