@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 22:33:20 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/06/18 17:21:01 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/06/18 18:18:07 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int	main(void)
 		Bureaucrat a("name", 1);
 		if (form)
 		{
-			std::cout << *form << std::endl;
 			form->beSigned(a);
+			std::cout << *form << std::endl;
 		}
 		else
 			std::cout << "Form creation failed" << std::endl;
