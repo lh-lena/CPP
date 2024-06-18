@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:41:20 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/06/18 12:25:55 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:56:43 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ public:
 	int				getGradeToExecute( void ) const;
 	void			beSigned(const Bureaucrat & src);
 	void			execute(Bureaucrat const & executor) const;
+	virtual void performAction() const = 0;
 
 	class GradeTooHighException : public std::exception {
 	public:
@@ -54,7 +55,6 @@ private:
 	bool				_isSigned;
 	const int			_gradeToSign;
 	const int			_gradeToExecute;
-	virtual void performAction() const = 0;
 	AForm(void); 						// Disallow default construction
 };
 
