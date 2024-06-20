@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:51:18 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/06/19 16:32:27 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/06/20 18:26:56 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,22 @@ LiteralType detectType(const std::string& literal)
 {
     std::stringstream ss(literal);
 
-    int i = 0;
-    // for (unsigned long i = 0; i < literal.length(); i++)
-    // {
-    //     if (isprint(literal[i]))
-    //         return (INVALID);
-    // }
-    ss >> i;
-    if (ss.fail()) {
-        std::cerr << "Invalid int literal" << std::endl;
-        return (INVALID);
+    int intVal;
+    for (unsigned long i = 0; i < literal.length() - 1; i++)
+    {
+        if (isprint(literal[i])) {
+            std::cerr << "1Not printable" << std::endl;
+            return (INVALID);
+        }
     }
-    // if (isprint(i) == 0)
-    //    return (INVALID);
+    ss >> intVal;
+    if (ss.eof() && !ss.fail()) {
+        return (INT);
+    }
     if (literal.length() == 1 && std::isalpha(literal[0]))
         return (CHAR);
 
-    return (INT);
+    return (FLOAT);
 }
 
 void    ScalarConverter::convert(std::string& value)
@@ -67,31 +66,44 @@ void    ScalarConverter::convert(std::string& value)
             if (ss.fail()) {
                 std::cerr << "Invalid int literal" << std::endl;
             }
+            std::cerr << " int " << std::endl;
             c = static_cast<char>(i);
             f = static_cast<float>(i);
             d = static_cast<double>(i);
             break ;
-        }        
+        }
         case (FLOAT):
         {
             ss >> f;
             if (ss.fail()) {
                 std::cerr << "Invalid float literal" << std::endl;
             }
+            std::cout << " float " << std::endl;
             i = static_cast<int>(f);
             c = static_cast<char>(f);
             d = static_cast<double>(f);
         }
         case (DOUBLE):
-            break ;
-
+        {
+            ss >> d;
+            if (ss.fail()) {
+                std::cerr << "Invalid double literal" << std::endl;
+            }
+            std::cout << " double " << std::endl;
+            i = static_cast<int>(d);
+            c = static_cast<char>(d);
+            f = static_cast<double>(d);
+        }
         case (INVALID):
             std::cout << "Invalid argument: " << value << std::endl;
             break ;
     }
     if (type != INVALID)
     {
-        std::cout << "char: '" << c << "'" << std::endl;
+        if (isprint(c))
+            std::cout << "char: '" << c << "'" << std::endl;
+        else
+            std::cout << "char: Non displayable" << std::endl;
         std::cout << "int: " << i << std::endl;
         std::cout << "float: " << f << std::endl;
         std::cout << "double: " << d << std::endl;
