@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 22:33:20 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/06/18 18:18:07 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/06/20 17:05:15 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int	main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-
 	delete form;
     return 0;
 }
