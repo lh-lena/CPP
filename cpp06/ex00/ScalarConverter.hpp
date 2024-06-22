@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 15:19:54 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/06/19 15:37:49 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/06/22 22:49:30 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 # include <cctype>
 # include <string>
 # include <sstream>
-
+# include <iomanip>
+# include <limits>
 #include <cstdlib>
 #include <cstring>
 

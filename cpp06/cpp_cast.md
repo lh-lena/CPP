@@ -47,6 +47,8 @@ Example: Safe Downcasting with Polymorphism
 
 Explanation: dynamic_cast performs a runtime check to ensure b can be safely cast to a Derived*. If the cast is invalid, d is set to nullptr.
 
+dynamic_cast is specifically used for safely downcasting pointers or references to polymorphic classes (i.e., classes with virtual functions) in C++.
+
 ## 3. const_cast
 const_cast is used to add or remove the const qualifier from a variable. This is useful when interfacing with legacy code or APIs that don't use const correctly.
 

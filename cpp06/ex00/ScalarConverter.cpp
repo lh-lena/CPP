@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:51:18 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/06/20 18:26:56 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/06/22 22:48:02 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,44 @@
 enum LiteralType { CHAR, INT, FLOAT, DOUBLE, INVALID };
 
 // Function to detect the type of the literal
-LiteralType detectType(const std::string& literal)
+LiteralType detectType(std::string& str)
 {
-    std::stringstream ss(literal);
+    std::istringstream ss(str);
 
     int intVal;
-    for (unsigned long i = 0; i < literal.length() - 1; i++)
-    {
-        if (isprint(literal[i])) {
-            std::cerr << "1Not printable" << std::endl;
-            return (INVALID);
-        }
-    }
+    std::size_t pos;
+    // for (unsigned long i = 0; i < str.length() - 1; i++)
+    // {
+    //     if (isprint(str[i])) {
+    //         std::cerr << "1Not printable" << std::endl;
+    //         return (INVALID);
+    //     }
+    // }
     ss >> intVal;
-    if (ss.eof() && !ss.fail()) {
+    pos = str.find(".");
+    if (ss.eof() && !ss.fail() && pos == std::string::npos) {
         return (INT);
     }
-    if (literal.length() == 1 && std::isalpha(literal[0]))
+    else
+        std::cerr << "int fail" << std::endl;
+    if (str.length() == 1 && std::isalpha(str[0]))
         return (CHAR);
-
-    return (FLOAT);
+    if (str.find(".") != str.npos)
+    {
+        if (!str.empty() && (str.back() == 'f' || str.back() == 'F')) {
+            str.pop_back();
+            return (FLOAT);
+        }
+        else
+            return (DOUBLE);
+    }
+    return (INVALID);
 }
 
 void    ScalarConverter::convert(std::string& value)
 {
     LiteralType type = detectType(value);
-    std::stringstream ss(value);
+    std::istringstream ss(value);
 
     float   f = 0.0;
     int     i = 0;
@@ -82,6 +94,7 @@ void    ScalarConverter::convert(std::string& value)
             i = static_cast<int>(f);
             c = static_cast<char>(f);
             d = static_cast<double>(f);
+            break ;
         }
         case (DOUBLE):
         {
@@ -93,6 +106,7 @@ void    ScalarConverter::convert(std::string& value)
             i = static_cast<int>(d);
             c = static_cast<char>(d);
             f = static_cast<double>(d);
+            break ;
         }
         case (INVALID):
             std::cout << "Invalid argument: " << value << std::endl;
@@ -105,7 +119,9 @@ void    ScalarConverter::convert(std::string& value)
         else
             std::cout << "char: Non displayable" << std::endl;
         std::cout << "int: " << i << std::endl;
-        std::cout << "float: " << f << std::endl;
+        // Set precision for float and double outputs
+        std::cout << std::fixed << std::setprecision(1);
+        std::cout << "float: " << f  << "f" << std::endl;
         std::cout << "double: " << d << std::endl;
     }
 }
