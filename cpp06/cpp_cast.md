@@ -106,3 +106,10 @@ Examples:
 1. Count the number of words in a string
 2. Print frequencies of individual words in a string
 3. Convert Integer to string
+
+limits:
+https://en.cppreference.com/w/cpp/language/floating_literal
+https://en.cppreference.com/w/cpp/language/integer_literal
+https://en.cppreference.com/w/cpp/types/numeric_limits
+https://www.geeksforgeeks.org/stdnumeric_limitsmax-and-stdnumeric_limitsmin-in-c/
+
