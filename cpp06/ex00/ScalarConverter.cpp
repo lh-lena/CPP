@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:51:18 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/06/23 01:20:07 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/06/23 15:42:07 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ void    ScalarConverter::convert(std::string& value)
             std::cout << "int: " << i << std::endl;
         else
             std::cout << "int: " << "impossible" << std::endl;
-        // Set precision for float and double outputs
         std::cout << std::fixed << std::setprecision(n);
         std::cout << "float: " << f  << "f" << std::endl;
         std::cout << "double: " << d << std::endl;
@@ -103,16 +102,16 @@ LiteralType detectType(std::string& str)
     int                 intVal;
 
     ss >> intVal;
-    if (ss.eof() && !ss.fail()) {
+    if (ss.eof() && !ss.fail())
         return (INT);
-    }
-    if (str.length() == 1 && std::isalpha(str[0]))
+    if (str.length() == 1 && std::isprint(str[0]))
         return (CHAR);
     pos = str.find(".");
     if ((pos < str.length()) && (pos != (str.length() - 1)) && ((pos + 1) != str.find("f")) && ((pos + 1) != str.find("F")))
     {
-        if ((str.back() == 'f' || str.back() == 'F')) {
-            str.pop_back();
+        if (str[str.length() - 1] == 'f' || str[str.length() - 1] == 'f')
+        {
+            str.erase(str.length() - 1);
             return (FLOAT);
         }
         else
@@ -127,54 +126,42 @@ LiteralType detectType(std::string& str)
 
 bool isFloatLimits(const std::string& str)
 {
-    if (str == "+inff" || str == "inff") {
+    if (str == "+inff" || str == "inff")
         return (true);
-    }
-    if (str == "-inff") {
+    if (str == "-inff")
         return (true);
-    }
-    if (str == "nanf") {
+    if (str == "nanf")
         return (true);
-    }
     return (false);
 }
 
 bool isDoubleLimits(const std::string& str)
 {
-    if (str == "+inf" || str == "inf") {
+    if (str == "+inf" || str == "inf")
         return (true);
-    }
-    if (str == "-inf") {
+    if (str == "-inf")
         return (true);
-    }
-    if (str == "nan") {
+    if (str == "nan")
         return (true);
-    }
     return (false);
 }
 
 void handleFloatLimits(const std::string& str, float &f)
 {
-    if (str == "+inff" || str == "inff") {
+    if (str == "+inff" || str == "inff")
         f = std::numeric_limits<float>::infinity();
-    }
-    else if (str == "-inff") {
+    else if (str == "-inff")
         f = -std::numeric_limits<float>::infinity();
-    }
-    else if (str == "nanf") {
+    else if (str == "nanf")
         f = std::numeric_limits<float>::quiet_NaN();
-    }
 }
 
 void handleDoubleLimits(const std::string& str, double &d)
 {
-    if (str == "+inf" || str == "inf") {
+    if (str == "+inf" || str == "inf")
         d = std::numeric_limits<double>::infinity();
-    }
-    else if (str == "-inf") {
+    else if (str == "-inf")
         d = -std::numeric_limits<double>::infinity();
-    }
-    else if (str == "nan") {
+    else if (str == "nan")
         d = std::numeric_limits<double>::quiet_NaN();
-    }
 }
