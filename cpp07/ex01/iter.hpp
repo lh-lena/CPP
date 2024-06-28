@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-template<typename T>void printElement(T element)
+template< typename T >void printElement(T element)
 {
     std::cout << element << std::endl;
 } 
