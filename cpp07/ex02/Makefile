@@ -1,6 +1,6 @@
-NAME	= serialization
+NAME	= array
 
-SRC	= main.cpp Base.cpp
+SRC	= main.cpp
 OBJ	= ${SRC:.cpp=.o}
 
 CPP	= c++
@@ -14,7 +14,7 @@ all:	 ${NAME}
 ${NAME}:	${OBJ}
 	$(CPP) $(FLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp Makefile
+%.o: %.cpp Array.hpp Array.tpp Makefile
 	$(CPP) $(FLAGS) -c -o $@ $<
 
 clean:
