@@ -31,7 +31,7 @@ int main(int, char**)
             std::cerr << "didn't save the same value!!" << std::endl;
             return 1;
         }
-        // std::cout << numbers[i] << std::endl;
+        std::cout << numbers[i] << std::endl;
     }
     try
     {
@@ -55,7 +55,7 @@ int main(int, char**)
         numbers[i] = rand();
     }
 
-    std::cout << "Size of array: " << numbers.size() << std::endl;
+    // std::cout << "Size of array: " << numbers.size() << std::endl;
     delete [] mirror;
 
     return 0;

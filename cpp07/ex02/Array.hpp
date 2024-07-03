@@ -8,7 +8,7 @@ public:
     Array( void );
     Array( unsigned int n );
     Array(Array const & src);
-    ~Array();
+   ~Array();
 
     Array&  operator=(Array const & src);
     T&  operator[](int idx);

@@ -6,7 +6,7 @@
 /*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 16:42:39 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/06/29 18:18:37 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/06/30 13:36:37 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ Array<T> &Array<T>::operator=(Array const &src)
 {
     if (this != &src)
     {
+        // std::cout << "Overloat operator = called" << std::endl;
         delete[] _arr;
         _size = src._size;
         if (src._arr)

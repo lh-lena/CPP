@@ -1,6 +1,6 @@
 NAME	= a.out
 
-SRC	= main.cpp
+SRC	= ex01.cpp
 OBJ	= ${SRC:.cpp=.o}
 
 CPP	= c++
