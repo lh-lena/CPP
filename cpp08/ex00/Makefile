@@ -14,7 +14,7 @@ all:	 ${NAME}
 ${NAME}:	${OBJ}
 	$(CPP) $(FLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp Array.hpp Array.tpp Makefile
+%.o: %.cpp easyfind.hpp easyfind.tpp Makefile
 	$(CPP) $(FLAGS) -c -o $@ $<
 
 clean:
