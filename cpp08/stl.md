@@ -2,6 +2,18 @@
 ## Templated containers, iterators, algorithms
 
 
+#### Containers in C++ STL (Standard Template Library)
+https://www.geeksforgeeks.org/containers-cpp-stl/?ref=lbp 
+
+### An Introduction to "Iterator Traits"
+https://www.codeproject.com/Articles/36530/An-Introduction-to-Iterator-Traits
+
+## Sequence Containers (vector, deque, list) -   store objects of the same type in a linear arrangement
+https://en.cppreference.com/w/cpp/named_req/SequenceContainer
+
+
+* A Container is an object used to store other objects and taking care of the management of the memory used by the objects it contains.
+
 - ex00 You don’t have to handle associative containers.
 - Associative containers 
 
@@ -81,3 +93,4 @@ int main() {
 ```
 
 In this example, the `std::set` ensures that all elements are unique and stored in sorted order, while the `std::map` associates integer keys with string values, also maintaining sorted order of the keys.
+
