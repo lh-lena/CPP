@@ -2,6 +2,11 @@
 # define SPAN_HPP
 # include <exception>
 # include <string>
+# include <vector>
+# include <algorithm>
+# include <iostream>
+# include <ctime>        // std::time
+# include <cstdlib>      // std::rand, std::srand
 
 class Span
 {
@@ -11,10 +16,11 @@ public:
     Span(const Span & src);
     ~Span();
 
-
     void    addNumber(int n);
     int     shortestSpan();
     int     longestSpan();
+    void    print();
+    void    addRandomNumbers();
 
     class SpanException : public std::exception
     {
@@ -28,8 +34,9 @@ public:
 
 private:
     Span();
-    unsigned int    _nSize;
-    int             *_arr;
+    unsigned int      _nSize;
+    // int             *_arr;
+    std::vector<int>       _vec;
     int               idx;
 };
 

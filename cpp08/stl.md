@@ -94,3 +94,9 @@ int main() {
 
 In this example, the `std::set` ensures that all elements are unique and stored in sorted order, while the `std::map` associates integer keys with string values, also maintaining sorted order of the keys.
 
+
+
+- https://cplusplus.com/reference/algorithm/generate/
+- https://cplusplus.com/reference/vector/vector/assign/
+
+
