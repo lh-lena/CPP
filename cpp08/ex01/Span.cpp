@@ -31,26 +31,33 @@ void Span::addNumber(int n)
         throw(SpanException("Reached max of elements"));
     _vec.push_back(n);
     idx = _vec.size();
-    std::sort(_vec.begin(), _vec.end());
 }
+
 int RandomNumber() { return (std::rand() % 100); }
 
 void Span::addRandomNumbers()
 {
-    std::generate(_vec.begin(), _vec.end(), RandomNumber);
+    std::generate_n(_vec.begin(), 5, RandomNumber);
+    // std::for_each(_vec.begin(), _vec.begin() + _nSize, RandomNumber);
 }
 
 int Span::shortestSpan()
 {
+    std::vector<int>::iterator it, low, next_low, tmp_low, tmp_next_low;
+    int n = 0;
+    int min_diff = __INT_MAX__;
     if (idx == 0 || idx == 1)
         throw(SpanException("Not enought elements. No span can be found"));
-    std::vector<int>::iterator low, next_low;
-    low = std::min_element(_vec.begin(), _vec.end());
-    next_low = std::upper_bound(_vec.begin(), _vec.end(), *low);
-    std::cout << "LOw: " << *low << std::endl;
-    std::cout << "next_lw: " << *next_low << std::endl;
-    return (*next_low - *low);
+    std::sort(_vec.begin(), _vec.end());
+    it = _vec.begin();
+    for (int i = 0; i < _nSize - 1; i++, it++)
+    {
+        if (*(it + 1) - *it < min_diff)
+            min_diff = *(it + 1) - *it;
+    }
+    return (min_diff);
 }
+
 int Span::longestSpan()
 {
     if (idx == 0 || idx == 1)

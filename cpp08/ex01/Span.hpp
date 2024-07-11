@@ -7,7 +7,7 @@
 # include <iostream>
 # include <ctime>        // std::time
 # include <cstdlib>      // std::rand, std::srand
-
+# include <limits>
 class Span
 {
 public:
@@ -35,7 +35,6 @@ public:
 private:
     Span();
     unsigned int      _nSize;
-    // int             *_arr;
     std::vector<int>       _vec;
     int               idx;
 };
