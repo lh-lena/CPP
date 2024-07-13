@@ -2,6 +2,8 @@
 
 Span::Span(unsigned int n) : _nSize(n), idx(0)
 {
+    if (UINT_MAX - abs(n) + 1 == _nSize)
+        throw(SpanException("Error. Invalid size"));
     _vec.reserve(_nSize);
 }
 
@@ -33,27 +35,37 @@ void Span::addNumber(int n)
     idx = _vec.size();
 }
 
-int RandomNumber() { return (std::rand() % 100); }
-
-void Span::addRandomNumbers()
+void    Span::addNumbersRange(int first, int n, const int & val)
 {
-    std::generate_n(_vec.begin(), 5, RandomNumber);
-    // std::for_each(_vec.begin(), _vec.begin() + _nSize, RandomNumber);
+    if ((first + n) > _nSize || first > idx || first < 0 || n < 0)
+        throw(SpanException("Error. Invalid range"));
+    try
+    {
+        _vec.insert(_vec.begin() + first, n, val);
+    }
+    catch (std::exception &e)
+    {
+        std::cerr <<"Exception: " << e.what() << std::endl;
+    }
+    idx = _vec.size();
 }
 
 int Span::shortestSpan()
 {
-    std::vector<int>::iterator it, low, next_low, tmp_low, tmp_next_low;
+    std::vector<int>::iterator it;
+    std::vector<int> tmp_vec = _vec;
     int n = 0;
-    int min_diff = __INT_MAX__;
+    int min_diff = INT_MAX;
+    int tmp = -1;
     if (idx == 0 || idx == 1)
         throw(SpanException("Not enought elements. No span can be found"));
-    std::sort(_vec.begin(), _vec.end());
-    it = _vec.begin();
-    for (int i = 0; i < _nSize - 1; i++, it++)
+    std::sort(tmp_vec.begin(), tmp_vec.end());
+    it = tmp_vec.begin();
+    for (int i = 0; i < _nSize - 1; ++i, ++it)
     {
-        if (*(it + 1) - *it < min_diff)
-            min_diff = *(it + 1) - *it;
+        tmp =*(it + 1) - *it;
+        if ( tmp < min_diff && tmp > 0)
+            min_diff = tmp;
     }
     return (min_diff);
 }
@@ -65,8 +77,6 @@ int Span::longestSpan()
     std::vector<int>::iterator max, min;
     max = std::max_element(_vec.begin(), _vec.end());
     min = std::min_element(_vec.begin(), _vec.end());
-    std::cout << "max: " << *max << std::endl;
-    std::cout << "min: " << *min << std::endl;
     return (*max - *min);
 }
 
@@ -75,9 +85,21 @@ Span::~Span() {}
 void Span::print()
 {
     std::cout << "Vector contains:";
-    for (std::vector<int>::iterator it = _vec.begin(); it != _vec.end(); ++it)
-        std::cout << ' ' << *it;
-    std::cout << std::endl;
+    if (idx < 30)
+    {
+        for (std::vector<int>::iterator it = _vec.begin(); it != _vec.end(); ++it)
+            std::cout << ' ' << *it;
+    }
+    else
+    {
+        for (std::vector<int>::iterator it = _vec.begin(); it != _vec.begin() + 10; ++it)
+            std::cout << ' ' << *it;
+        std::cout << " . . . ";
+        for (std::vector<int>::iterator it = _vec.end() - 10; it != _vec.end(); ++it)
+            std::cout << ' ' << *it;
+    }
+   
+    std::cout << "/END"  << std::endl;
 }
 
 /**

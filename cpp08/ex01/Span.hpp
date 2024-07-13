@@ -7,7 +7,8 @@
 # include <iostream>
 # include <ctime>        // std::time
 # include <cstdlib>      // std::rand, std::srand
-# include <limits>
+# include <climits>
+
 class Span
 {
 public:
@@ -21,6 +22,7 @@ public:
     int     longestSpan();
     void    print();
     void    addRandomNumbers();
+    void    addNumbersRange(int first, int n, const int & val);
 
     class SpanException : public std::exception
     {
