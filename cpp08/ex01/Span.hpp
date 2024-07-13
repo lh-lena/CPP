@@ -5,8 +5,6 @@
 # include <vector>
 # include <algorithm>
 # include <iostream>
-# include <ctime>        // std::time
-# include <cstdlib>      // std::rand, std::srand
 # include <climits>
 
 class Span
@@ -21,7 +19,6 @@ public:
     int     shortestSpan();
     int     longestSpan();
     void    print();
-    void    addRandomNumbers();
     void    addNumbersRange(int first, int n, const int & val);
 
     class SpanException : public std::exception
@@ -37,7 +34,7 @@ public:
 private:
     Span();
     unsigned int      _nSize;
-    std::vector<int>       _vec;
+    std::vector<int>  _vec;
     int               idx;
 };
 
