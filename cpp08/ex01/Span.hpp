@@ -26,7 +26,6 @@ public:
         public:
             SpanException(const std::string & msg);
             const char *what() const throw();
-
         private:
             std::string _msg;
     };
