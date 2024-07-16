@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohladkov <ohladkov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ohladkov <ohladkov@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 15:58:50 by ohladkov          #+#    #+#             */
-/*   Updated: 2024/07/15 15:58:56 by ohladkov         ###   ########.fr       */
+/*   Updated: 2024/07/16 14:55:39 by ohladkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 # define MUTANTSTACK_HPP
 
 # include <stack>
+# include <deque>
 # include <iostream>
 
-template< typename T >
+template <class T>
 class MutantStack : public std::stack<T>
 {
 public:
@@ -28,4 +29,8 @@ public:
 
 #include "MutantStack.tpp"
 
+/**
+ * https://cplusplus.com/reference/stack/stack/
+ * https://stackoverflow.com/questions/75093686/how-to-make-a-c-stack-container-iterable
+*/
 #endif
