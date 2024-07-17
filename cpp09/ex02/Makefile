@@ -1,6 +1,6 @@
-NAME	= easyfind
+NAME	= PmergeMe
 
-SRC	= main.cpp
+SRC	= main.cpp PmergeMe.cpp
 OBJ	= ${SRC:.cpp=.o}
 
 CPP	= c++
@@ -14,7 +14,7 @@ all:	 ${NAME}
 ${NAME}:	${OBJ}
 	$(CPP) $(FLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp easyfind.hpp easyfind.tpp Makefile
+%.o: %.cpp PmergeMe.hpp Makefile
 	$(CPP) $(FLAGS) -c -o $@ $<
 
 clean:
