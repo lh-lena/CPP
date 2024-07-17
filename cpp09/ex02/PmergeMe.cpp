@@ -32,6 +32,15 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other)
 ** --------------------------------- EXCEPTION -------------------------------
 */
 
+PmergeMe::PmergeMeException::PmergeMeException(const std::string &msg) : _msg(msg) {}
+
+PmergeMe::PmergeMeException::~PmergeMeException() throw() {}
+
+const char *PmergeMe::PmergeMeException::what() const throw()
+{
+    return (_msg.c_str());
+}
+
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
