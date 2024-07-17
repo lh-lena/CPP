@@ -39,6 +39,8 @@ const char *BitcoinExchange::ExchangeException::what() const throw()
     return (_msg.c_str());
 }
 
+BitcoinExchange::ExchangeException::~ExchangeException() throw() {};
+
 /*
 ** --------------------------------- METHODS ----------------------------------
 */

@@ -24,7 +24,7 @@ public:
         public:
             ExchangeException(const std::string &message);
             const char *what() const throw();
-            virtual ~ExchangeException() throw() {};
+            ~ExchangeException() throw();
         private:
             std::string _msg;
     };
