@@ -46,11 +46,10 @@ const char *BitcoinExchange::ExchangeException::what() const throw()
 // function to parse a date or time string.
 time_t BitcoinExchange::parseDate(const std::string &dateString)
 {
-    struct tm tmStruct = {};
     time_t time;
-    std::istringstream ss(dateString);
-    ss >> std::get_time(&tmStruct, "%Y-%m-%d");
-    if (ss.fail())
+    struct tm tmStruct;
+    memset(&tmStruct, 0, sizeof(struct tm));
+    if (strptime(dateString.c_str(), "%Y-%m-%d", &tmStruct) == 0)
         throw ExchangeException("Error: invalid date.");
     tmStruct.tm_isdst = -1;
     time = mktime(&tmStruct);
@@ -65,7 +64,7 @@ bool BitcoinExchange::loadDatabase( void )
     float           value = 0.00f;
     time_t          timestamp = -1;
 
-    std::ifstream   file(_dbCsv);
+    std::ifstream   file(_dbCsv.c_str());
     if (!file.is_open())
     {
         std::cerr << "Error: Failed to open file: " << _dbCsv << std::endl;
