@@ -4,12 +4,15 @@
 # include <string>
 # include <iostream>
 # include <sstream>
+# include <iomanip>
+# include <limits>
+# include <cmath>
+# include <iterator>
 # include <vector>
 # include <list>
 
 class PmergeMe
 {
-
 public:
     PmergeMe();
     PmergeMe(const PmergeMe& other);
@@ -26,8 +29,13 @@ public:
         std::string _msg;
     };
 
+    void    setSize(int i);
+    int     getSize( void );
+    template<typename T> void   displaySortedSequence(T container);
+    void    displaySortingTime(const std::string &containerName, double takenTime);
+
 private:
-    unsigned int        _size;
+    int        _size;
     std::vector<int>    _vector;
     std::list<int>      _list;
 };
