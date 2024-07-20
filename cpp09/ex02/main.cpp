@@ -1,53 +1,58 @@
 #include "PmergeMe.hpp"
 
-void    displayUnsortedSequence(int ac, char **av)
+void    displayUnsortedSequence(int size, char **args)
 {
     std::cout << "Before:  ";
-    for (int i = 0; i < ac; ++i)
+    if (size > 10)
     {
-        std::cout << av[i] << " ";
+        for (int i = 0; i < 5; ++i)
+            std::cout << args[i] << " ";
+        std::cout << "[...]";
+    }
+    else
+    {
+        for (int i = 0; i < size; ++i)
+            std::cout << args[i] << " ";
     }
     std::cout << std::endl;
 }
 
-void    processInput(int ac, char **av)
+void    inputVefication(int size, char **arg)
 {
     int num;
-    for (int i = 0; i < ac; i++)
+    for (int i = 0; i < size; i++)
     {
-        std::istringstream iss(av[i]);
+        std::istringstream iss(arg[i]);
         iss >> num;
         if (iss.fail() || num < 0)
             throw PmergeMe::PmergeMeException("Error");
-        // std::cout << num << " ";
     }
 }
 
 int main(int ac, char **av)
 {
-    time_t start, end;
-
-    if (ac <= 1 || av[1] == '\0')
-        return (std::cerr << "Error" << std::endl, -1);
+    clock_t startVec, endVec;
     PmergeMe pm;
-    time(&start);
-    // unsync the I/O of C and C++. 
-    // std::ios_base::sync_with_stdio(false); 
+
+    if (ac == 1 || av[1] == '\0')
+        return (std::cerr << "Usage: " << av[0] <<  " [. . . numbers]" << std::endl, 1);
     pm.setSize(ac - 1);
-    displayUnsortedSequence(ac - 1, (av + 1));
     try
     {
-        processInput(ac - 1, av + 1);
+        inputVefication(ac - 1, av + 1);
+        displayUnsortedSequence(ac - 1, (av + 1));
+        startVec = clock();
+        pm.sortVector(ac - 1, av + 1);
+        endVec = clock();
+        pm.displaySortedSequence(pm.getVector());
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << std::endl;
+        return (-1);
     }
-
-    time(&end);
-    double time_taken = double(end - start);
-    std::cout << "Time taken by program is : " << std::fixed 
-        << time_taken << std::setprecision(5); 
-    std::cout << " sec " << std::endl; 
+    double time_taken = double(endVec - startVec) * 10 / CLOCKS_PER_SEC;
+    pm.displaySortingTime("std::vector<unsigned int>", time_taken);
+    pm.displaySortingTime("std::list<unsigned int>  ", time_taken);
     return (0);
 }

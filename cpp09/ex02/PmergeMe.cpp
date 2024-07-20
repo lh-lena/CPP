@@ -33,7 +33,6 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other)
     return (*this);
 }
 
-
 /*
 ** --------------------------------- EXCEPTION -------------------------------
 */
@@ -51,28 +50,45 @@ const char *PmergeMe::PmergeMeException::what() const throw()
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void    PmergeMe::displaySortingTime(const std::string& containerName, double takenTime)
+void    PmergeMe::displaySortingTime(const std::string& containerName, double takenTime) const
 {
     std::cout
     << "Time to process a range of "
     << this->getSize() 
     << " elements with " + containerName + " : "
     << takenTime 
-    << " us"
+    << " ms"
     << std::endl;
 }
 
-template<typename T> void   PmergeMe::displaySortedSequence(T container)
+template<typename T> void   PmergeMe::displaySortedSequence(const T &container) const
 {
     typename T::const_iterator it;
+    unsigned int size = container.size();
     it = container.begin();
-    while (it != container.end())
+    std::cout << "After:   ";
+    if (size < 10)
     {
-        std::cout << *it << " ";
-        it++;
+        for (; it != container.end(); ++it)
+            std::cout << *it << " ";
+    }
+    else
+    {
+        for (int i = 0 ; i < 5; ++i, ++it)
+            std::cout << *it << " ";
+        std::cout << "[...] ";
     }
     std::cout << std::endl;
 }
+
+void    PmergeMe::sortVector(int size, char **args)
+{
+    for (int i = 0; i < size; ++i)
+    {
+        this->_vector.push_back(ft_atouint(args[i]));
+    }
+}
+
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
@@ -85,8 +101,23 @@ void    PmergeMe::setSize(int i)
         throw PmergeMe::PmergeMeException("Error: invalid size");
 }
 
-int PmergeMe::getSize( void )
+int PmergeMe::getSize( void ) const
 {
     return (_size);
 }
 
+std::vector<unsigned int>   PmergeMe::getVector() const
+{
+    return(this->_vector);
+}
+
+
+unsigned int    ft_atouint(char *str)
+{
+    unsigned int num;
+    std::stringstream ss(str);
+    ss >> num;
+    return (num);
+}
+
+template void PmergeMe::displaySortedSequence(const std::vector<unsigned int> &container) const;

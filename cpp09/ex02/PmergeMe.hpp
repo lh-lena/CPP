@@ -23,21 +23,24 @@ public:
     {
     public:
         PmergeMeException(const std::string& msg);
-        const char *what() const throw();
-        ~PmergeMeException() throw();
+        virtual ~PmergeMeException() throw();
+        virtual const char *what() const throw();
     private:
         std::string _msg;
     };
 
     void    setSize(int i);
-    int     getSize( void );
-    template<typename T> void   displaySortedSequence(T container);
-    void    displaySortingTime(const std::string &containerName, double takenTime);
-
+    int     getSize( void ) const;
+    template<typename T> void   displaySortedSequence(const T &container) const;
+    void    displaySortingTime(const std::string &containerName, double takenTime) const;
+    void    sortVector(int size, char **args);
+    std::vector<unsigned int>   getVector() const;
 private:
     int        _size;
-    std::vector<int>    _vector;
-    std::list<int>      _list;
+    std::vector<unsigned int>    _vector;
+    std::list<unsigned int>      _list;
 };
+
+unsigned int    ft_atouint(char *str);
 
 #endif
