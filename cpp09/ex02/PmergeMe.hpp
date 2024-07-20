@@ -29,18 +29,23 @@ public:
         std::string _msg;
     };
 
-    void    setSize(int i);
-    int     getSize( void ) const;
-    template<typename T> void   displaySortedSequence(const T &container) const;
-    void    displaySortingTime(const std::string &containerName, double takenTime) const;
-    void    sortVector(int size, char **args);
+    void                        setSize(int i);
+    int                         getSize( void ) const;
+    template<typename T> void   displayContainer(const T &container) const;
+    void                        displaySortingTime(const std::string &containerName, double takenTime) const;
+    void                        fillVector(int size, char **args);
+    void                        fillList(int size, char **args);
+    void                        sortVector();
+    void                        sortList();
     std::vector<unsigned int>   getVector() const;
+    std::list<unsigned int>     getList() const;
+
 private:
-    int        _size;
+    int                          _size;
     std::vector<unsigned int>    _vector;
     std::list<unsigned int>      _list;
 };
 
-unsigned int    ft_atouint(char *str);
+unsigned int    ft_stouint(char *str);
 
 #endif

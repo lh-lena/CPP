@@ -57,11 +57,11 @@ void    PmergeMe::displaySortingTime(const std::string& containerName, double ta
     << this->getSize() 
     << " elements with " + containerName + " : "
     << takenTime 
-    << " ms"
+    << " us"
     << std::endl;
 }
 
-template<typename T> void   PmergeMe::displaySortedSequence(const T &container) const
+template<typename T> void   PmergeMe::displayContainer(const T &container) const
 {
     typename T::const_iterator it;
     unsigned int size = container.size();
@@ -81,14 +81,26 @@ template<typename T> void   PmergeMe::displaySortedSequence(const T &container) 
     std::cout << std::endl;
 }
 
-void    PmergeMe::sortVector(int size, char **args)
+void    PmergeMe::fillVector(int size, char **args)
 {
     for (int i = 0; i < size; ++i)
     {
-        this->_vector.push_back(ft_atouint(args[i]));
+        this->_vector.push_back(ft_stouint(args[i]));
     }
 }
 
+void    PmergeMe::fillList(int size, char **args)
+{
+    for (int i = 0; i < size; ++i)
+    {
+        this->_list.push_back(ft_stouint(args[i]));
+    }
+}
+
+void    PmergeMe::sortVector()
+{
+    
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
@@ -111,8 +123,16 @@ std::vector<unsigned int>   PmergeMe::getVector() const
     return(this->_vector);
 }
 
+std::list<unsigned int>   PmergeMe::getList() const
+{
+    return(this->_list);
+}
 
-unsigned int    ft_atouint(char *str)
+/*
+** --------------------------------- UTILITIES ---------------------------------
+*/
+
+unsigned int    ft_stouint(char *str)
 {
     unsigned int num;
     std::stringstream ss(str);
@@ -120,4 +140,5 @@ unsigned int    ft_atouint(char *str)
     return (num);
 }
 
-template void PmergeMe::displaySortedSequence(const std::vector<unsigned int> &container) const;
+template void PmergeMe::displayContainer(const std::vector<unsigned int> &container) const;
+template void PmergeMe::displayContainer(const std::list<unsigned int> &container) const;
