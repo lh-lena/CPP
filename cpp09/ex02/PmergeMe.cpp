@@ -7,8 +7,6 @@ template void PmergeMe::fillContainer(std::vector<unsigned int> &container, int 
 template void PmergeMe::fillContainer(std::list<unsigned int> &container, int size, char **args);
 template void PmergeMe::mergeInsertionSort(std::list<unsigned int> &container, int start, int end);
 template void PmergeMe::mergeInsertionSort(std::vector<unsigned int> &container, int start, int end);
-// template void PmergeMe::insertionSort(std::list<unsigned int> &container, int low, int high);
-// template void PmergeMe::insertionSort(std::vector<unsigned int> &container, int low, int high);
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -105,23 +103,31 @@ void   PmergeMe::insertionSort(std::list<unsigned int> &container, int low, int 
 {
     std::list<unsigned int>::iterator itLow;
     std::list<unsigned int>::iterator itHigh;
+    std::list<unsigned int>::value_type val;
+    std::list<unsigned int>::iterator it;
+    std::list<unsigned int>::iterator tmp;
+    std::list<unsigned int>::iterator tmpPrev;
 
     itLow = container.begin();
     itHigh = container.begin();
     std::advance(itLow, low);
     std::advance(itHigh, high);
-
-    std::list<unsigned int>::iterator it;
     for (it = itLow; it != itHigh; ++it)
     {
-        std::list<unsigned int>::value_type val = *it;
-        std::list<unsigned int>::iterator t = it;
-        while (t != itLow && *std::prev(t) > val)
+        val = *it;
+        tmp = it;
+        tmpPrev = tmp;
+        if (tmp != itLow)
+            tmpPrev--;
+        while (tmp != itLow && *tmpPrev > val)
         {
-            *t = *(std::prev(t));
-            --t;
+            *tmp = *tmpPrev;
+            tmp = tmpPrev;
+            tmpPrev = tmp;
+            if (tmp != itLow)
+                tmpPrev--;
         }
-        *t = val;
+        *tmp = val;
     }
 }
 
@@ -148,6 +154,7 @@ template<typename T> void   PmergeMe::mergeInsertionSort(T &container, int begin
 {
     const int threshold = 16;
     int size = container.size();
+    int mid;
     if (begin < 0 || end > size || size == 0)
         throw PmergeMe::PmergeMeException("Error\nIndex out of bounds or no elements");
     if (begin < end)
@@ -158,13 +165,11 @@ template<typename T> void   PmergeMe::mergeInsertionSort(T &container, int begin
         }
         else
         {
-            int mid = begin + (end - begin) / 2;
-
+            mid = begin + (end - begin) / 2;
             mergeInsertionSort(container, begin, mid);
             mergeInsertionSort(container, mid + 1, end);
 
             // merge(container, low, mid, end);
-            // std::cout << "here2 " << mid << std::endl;
         }
     }
 }
