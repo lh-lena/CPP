@@ -33,31 +33,35 @@ int main(int ac, char **av)
 {
     clock_t startVec, startList;
     PmergeMe pm;
+    std::list<unsigned int>      list;
+    std::vector<unsigned int>    vec;
+    int size = ac -1;
 
-    if (ac == 1 || av[1] == '\0')
+    if (ac == 1)
         return (std::cerr << "Usage: " << av[0] <<  " [. . . numbers]" << std::endl, 1);
-    pm.setSize(ac - 1);
+    pm.setSize(size);
     try
     {
-        inputVefication(ac - 1, av + 1);
-        displayUnsortedSequence(ac - 1, (av + 1));
-        startVec = clock();
-        pm.fillVector(ac - 1, av + 1);
-        pm.sortVector();
-        startVec = clock() - startVec;
-        pm.displayContainer(pm.getVector());
-        startList = clock();
-        pm.fillList(ac - 1, av + 1);
-        // pm.sortList();
-        startList = clock() - startList;
+        inputVefication(size, av + 1);
+        displayUnsortedSequence(size, (av + 1));
+        startVec = (double)clock();
+        pm.fillContainer(vec, size, av + 1);
+        pm.mergeInsertionSort(vec, 0, vec.size());
+        startVec = (double)clock() - startVec;
+        pm.printContainer(vec);
+        startList = (double)clock();
+        pm.fillContainer(list, size, av + 1);
+        pm.mergeInsertionSort(list, 0, vec.size());
+        pm.printContainer(list);
+        startList = (double)clock() - startList;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << std::endl;
         return (-1);
     }
-    double timeVec = (double)startVec * 10 / CLOCKS_PER_SEC;
-    double timeList = (double)startList * 10 / CLOCKS_PER_SEC;
+    double timeVec = (double)startVec / (double)CLOCKS_PER_SEC;
+    double timeList = (double)startList / (double)CLOCKS_PER_SEC;
     pm.displaySortingTime("std::vector<unsigned int>", timeVec);
     pm.displaySortingTime("std::list<unsigned int>  ", timeList);
     return (0);

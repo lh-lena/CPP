@@ -31,19 +31,15 @@ public:
 
     void                        setSize(int i);
     int                         getSize( void ) const;
-    template<typename T> void   displayContainer(const T &container) const;
     void                        displaySortingTime(const std::string &containerName, double takenTime) const;
-    void                        fillVector(int size, char **args);
-    void                        fillList(int size, char **args);
-    void                        sortVector();
-    void                        sortList();
-    std::vector<unsigned int>   getVector() const;
-    std::list<unsigned int>     getList() const;
+    template<typename T> void   printContainer(const T &container) const;
+    template<typename T> void   fillContainer(T &container, int size, char **args);
+    template<typename T> void   mergeInsertionSort(T &container, int low, int high);
+    void   insertionSort(std::vector<unsigned int> &container, int low, int high);
+    void   insertionSort(std::list<unsigned int> &container, int low, int high);
 
 private:
-    int                          _size;
-    std::vector<unsigned int>    _vector;
-    std::list<unsigned int>      _list;
+    int  _size;
 };
 
 unsigned int    ft_stouint(char *str);
