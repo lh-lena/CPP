@@ -37,7 +37,7 @@ public:
     template<typename T> void   mergeInsertionSort(T &container, int low, int high);
     void   insertionSort(std::vector<unsigned int> &container, int low, int high);
     void   insertionSort(std::list<unsigned int> &container, int low, int high);
-
+    void   merge(std::vector<unsigned int> &arr, int const left, int const mid, int const right);
 private:
     int  _size;
 };

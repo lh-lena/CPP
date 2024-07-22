@@ -5,7 +5,7 @@ template void PmergeMe::printContainer(const std::vector<unsigned int> &containe
 template void PmergeMe::printContainer(const std::list<unsigned int> &container) const;
 template void PmergeMe::fillContainer(std::vector<unsigned int> &container, int size, char **args);
 template void PmergeMe::fillContainer(std::list<unsigned int> &container, int size, char **args);
-template void PmergeMe::mergeInsertionSort(std::list<unsigned int> &container, int start, int end);
+// template void PmergeMe::mergeInsertionSort(std::list<unsigned int> &container, int start, int end);
 template void PmergeMe::mergeInsertionSort(std::vector<unsigned int> &container, int start, int end);
 
 /*
@@ -137,7 +137,7 @@ void   PmergeMe::insertionSort(std::vector<unsigned int> &container, int low, in
     std::vector<unsigned int>::value_type val;
     int t;
 
-    for (int i = low + 1; i < high; i++)
+    for (int i = low + 1; i <= high; i++)
     {
         val = container[i];
         t = i - 1;
@@ -150,11 +150,54 @@ void   PmergeMe::insertionSort(std::vector<unsigned int> &container, int low, in
     }
 }
 
+void    PmergeMe::merge(std::vector<unsigned int> &arr, int const left, int const mid, int const right)
+{
+    int subArrLeft = mid - left + 1;
+    int subArrRight = right - mid;
+
+    std::vector<unsigned int> leftArr(subArrLeft);
+    std::vector<unsigned int> rightArr(subArrRight);
+    for(int i = 0; i < subArrLeft; i++)
+        leftArr[i] = arr[left + i];
+    for(int j = 0; j < subArrRight; j++)
+        rightArr[j] = arr[mid + 1 + j];
+    int i = 0;
+    int j = 0;
+    int l = left;
+    while (i < subArrLeft && j < subArrRight)
+    {
+        if (leftArr[i] <= rightArr[j])
+        {
+            arr[l] = leftArr[i];
+            i++;
+        }
+        else
+        {
+            arr[l] = rightArr[j];
+            j++;
+        }
+        l++;
+    }
+    while (i < subArrLeft)
+    {
+        arr[l] = leftArr[i];
+        l++;
+        i++;
+    }
+    while (j < subArrRight)
+    {
+        arr[l] = rightArr[j];
+        l++;
+        j++;
+    }
+}
+
 template<typename T> void   PmergeMe::mergeInsertionSort(T &container, int begin, int end)
 {
     const int threshold = 16;
     int size = container.size();
     int mid;
+
     if (begin < 0 || end > size || size == 0)
         throw PmergeMe::PmergeMeException("Error\nIndex out of bounds or no elements");
     if (begin < end)
@@ -169,7 +212,7 @@ template<typename T> void   PmergeMe::mergeInsertionSort(T &container, int begin
             mergeInsertionSort(container, begin, mid);
             mergeInsertionSort(container, mid + 1, end);
 
-            // merge(container, low, mid, end);
+            merge(container, begin, mid, end);
         }
     }
 }
