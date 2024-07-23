@@ -59,16 +59,15 @@ int main(int ac, char **av)
         inputVefication(size, av + 1);
         displayUnsortedSequence(size, (av + 1));
         startVec = (double)clock();
-
         pm.fillContainer(vec, size, av + 1);
         pm.mergeInsertionSort(vec, 0, vec.size() - 1);
         endVec = (double)clock();
         start= now() - start;
         pm.printContainer(vec);
         startList = (double)clock();
-        // pm.fillContainer(list, size, av + 1);
-        // pm.mergeInsertionSort(list, 0, vec.size());
-        // pm.printContainer(list);
+        pm.fillContainer(list, size, av + 1);
+        pm.mergeInsertionSort(list, 0, list.size() - 1);
+        pm.printContainer(list);
         startList = (double)clock() - startList;
     }
     catch(const std::exception& e)

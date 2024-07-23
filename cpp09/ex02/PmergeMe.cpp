@@ -5,7 +5,7 @@ template void PmergeMe::printContainer(const std::vector<unsigned int> &containe
 template void PmergeMe::printContainer(const std::list<unsigned int> &container) const;
 template void PmergeMe::fillContainer(std::vector<unsigned int> &container, int size, char **args);
 template void PmergeMe::fillContainer(std::list<unsigned int> &container, int size, char **args);
-// template void PmergeMe::mergeInsertionSort(std::list<unsigned int> &container, int start, int end);
+template void PmergeMe::mergeInsertionSort(std::list<unsigned int> &container, int start, int end);
 template void PmergeMe::mergeInsertionSort(std::vector<unsigned int> &container, int start, int end);
 
 /*
@@ -74,20 +74,20 @@ void    PmergeMe::displaySortingTime(const std::string& containerName, double ta
 template<typename T> void   PmergeMe::printContainer(const T &container) const
 {
     typename T::const_iterator it;
-    unsigned int size = container.size();
+    // unsigned int size = container.size();
     it = container.begin();
     std::cout << "After:   ";
-    if (size < 10)
-    {
+    // if (size < 10)
+    // {
         for (; it != container.end(); ++it)
             std::cout << *it << " ";
-    }
-    else
-    {
-        for (int i = 0 ; i < 5; ++i, ++it)
-            std::cout << *it << " ";
-        std::cout << "[...] ";
-    }
+    // }
+    // else
+    // {
+    //     for (int i = 0 ; i < 5; ++i, ++it)
+    //         std::cout << *it << " ";
+    //     std::cout << "[...] ";
+    // }
     std::cout << std::endl;
 }
 
@@ -119,13 +119,14 @@ void   PmergeMe::insertionSort(std::list<unsigned int> &container, int low, int 
         tmpPrev = tmp;
         if (tmp != itLow)
             tmpPrev--;
-        while (tmp != itLow && *tmpPrev > val)
+        while (*tmpPrev > val)
         {
             *tmp = *tmpPrev;
             tmp = tmpPrev;
             tmpPrev = tmp;
-            if (tmp != itLow)
-                tmpPrev--;
+            if (tmp == itLow)
+                break ;
+            tmpPrev--;
         }
         *tmp = val;
     }
@@ -148,6 +149,48 @@ void   PmergeMe::insertionSort(std::vector<unsigned int> &container, int low, in
         }
         container[t + 1] = val;
     }
+}
+
+void    PmergeMe::merge(std::list<unsigned int> &list, int const left, int const mid, int const right)
+{
+    std::list<unsigned int>::iterator itRightArr;
+    std::list<unsigned int>::iterator itLeftArr;
+    std::list<unsigned int>::iterator itLeft;
+    std::list<unsigned int>::iterator itRight;
+    std::list<unsigned int>::iterator itList;
+    std::list<unsigned int> leftArr;
+    std::list<unsigned int> rightArr;
+
+    int leftMaxSize = mid - left + 1;
+    int rightMaxSize = right - mid;
+    itLeft = list.begin();
+    itRight = list.begin();
+    for(int i = 0; i < leftMaxSize; i++, itLeft++)
+        leftArr.push_back(*itLeft);
+    for(int i = 0; i < rightMaxSize; i++, itRight++)
+        rightArr.push_back(*itRight);
+    itLeftArr = leftArr.begin();
+    itRightArr = rightArr.begin();
+    itList = list.begin();
+    std::advance(itList, left);
+    while (itLeftArr != leftArr.end() && itRightArr != rightArr.end())
+    {
+        if (*itLeftArr <= *itRightArr)
+        {
+            *itList = *itLeftArr;
+            itLeftArr++;
+        }
+        else
+        {
+            *itList = *itRightArr;
+            itRightArr++;
+        }
+        itList++;
+    }
+    for (; itLeftArr != leftArr.end(); itList++, itLeftArr++)
+        *itList = *itLeftArr;
+    for (; itRightArr != rightArr.end(); itList++, itRightArr++)
+        *itList = *itRightArr;
 }
 
 void    PmergeMe::merge(std::vector<unsigned int> &arr, int const left, int const mid, int const right)
@@ -178,18 +221,10 @@ void    PmergeMe::merge(std::vector<unsigned int> &arr, int const left, int cons
         }
         l++;
     }
-    while (i < subArrLeft)
-    {
+    for (; i < subArrLeft; i++, l++)
         arr[l] = leftArr[i];
-        l++;
-        i++;
-    }
-    while (j < subArrRight)
-    {
+    for (; j < subArrRight; l++, j++)
         arr[l] = rightArr[j];
-        l++;
-        j++;
-    }
 }
 
 template<typename T> void   PmergeMe::mergeInsertionSort(T &container, int begin, int end)
@@ -202,7 +237,7 @@ template<typename T> void   PmergeMe::mergeInsertionSort(T &container, int begin
         throw PmergeMe::PmergeMeException("Error\nIndex out of bounds or no elements");
     if (begin < end)
     {
-        if (end - begin + 1 <= threshold)
+        if (end - begin + 1 < threshold)
         {
             insertionSort(container, begin, end);
         }
@@ -211,7 +246,6 @@ template<typename T> void   PmergeMe::mergeInsertionSort(T &container, int begin
             mid = begin + (end - begin) / 2;
             mergeInsertionSort(container, begin, mid);
             mergeInsertionSort(container, mid + 1, end);
-
             merge(container, begin, mid, end);
         }
     }
