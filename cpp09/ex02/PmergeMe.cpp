@@ -67,27 +67,30 @@ void    PmergeMe::displaySortingTime(const std::string& containerName, double ta
     << std::fixed
     << takenTime 
     << std::setprecision(5)
-    << " us"
+    << " µs"
     << std::endl;
 }
 
 template<typename T> void   PmergeMe::printContainer(const T &container) const
 {
     typename T::const_iterator it;
-    // unsigned int size = container.size();
+    unsigned int size = container.size();
     it = container.begin();
     std::cout << "After:   ";
-    // if (size < 10)
-    // {
+    if (size < 15)
+    {
         for (; it != container.end(); ++it)
             std::cout << *it << " ";
-    // }
-    // else
-    // {
-    //     for (int i = 0 ; i < 5; ++i, ++it)
-    //         std::cout << *it << " ";
-    //     std::cout << "[...] ";
-    // }
+    }
+    else
+    {
+        for (int i = 0 ; i < 5; ++i, ++it)
+            std::cout << *it << " ";
+        std::cout << "[...] ";
+        std::advance(it, size - 10);
+        for (int i = 0 ; i < 4; i++, it++)
+            std::cout << *it << " ";
+    }
     std::cout << std::endl;
 }
 
@@ -101,32 +104,29 @@ template<typename T> void    PmergeMe::fillContainer(T &container, int size, cha
 
 void   PmergeMe::insertionSort(std::list<unsigned int> &container, int low, int high)
 {
-    std::list<unsigned int>::iterator itLow;
-    std::list<unsigned int>::iterator itHigh;
-    std::list<unsigned int>::value_type val;
+    std::list<unsigned int>::iterator itLow = container.begin();
+    std::list<unsigned int>::iterator itHigh = container.begin();
+    unsigned int val;
     std::list<unsigned int>::iterator it;
     std::list<unsigned int>::iterator tmp;
     std::list<unsigned int>::iterator tmpPrev;
 
-    itLow = container.begin();
-    itHigh = container.begin();
     std::advance(itLow, low);
-    std::advance(itHigh, high);
-    for (it = itLow; it != itHigh; ++it)
+    std::advance(itHigh, high + 1);
+    for (it = itLow; it != itHigh; it++)
     {
         val = *it;
         tmp = it;
         tmpPrev = tmp;
         if (tmp != itLow)
             tmpPrev--;
-        while (*tmpPrev > val)
+        while (tmp != itLow && *tmpPrev > val)
         {
             *tmp = *tmpPrev;
             tmp = tmpPrev;
             tmpPrev = tmp;
-            if (tmp == itLow)
-                break ;
-            tmpPrev--;
+            if (tmp != itLow)
+                tmpPrev--;
         }
         *tmp = val;
     }
@@ -161,18 +161,18 @@ void    PmergeMe::merge(std::list<unsigned int> &list, int const left, int const
     std::list<unsigned int> leftArr;
     std::list<unsigned int> rightArr;
 
+    itList = list.begin();
+    std::advance(itList, left);
     int leftMaxSize = mid - left + 1;
     int rightMaxSize = right - mid;
-    itLeft = list.begin();
-    itRight = list.begin();
+    itLeft = itList;
     for(int i = 0; i < leftMaxSize; i++, itLeft++)
         leftArr.push_back(*itLeft);
+    itRight = itLeft;
     for(int i = 0; i < rightMaxSize; i++, itRight++)
         rightArr.push_back(*itRight);
     itLeftArr = leftArr.begin();
     itRightArr = rightArr.begin();
-    itList = list.begin();
-    std::advance(itList, left);
     while (itLeftArr != leftArr.end() && itRightArr != rightArr.end())
     {
         if (*itLeftArr <= *itRightArr)
@@ -233,7 +233,7 @@ template<typename T> void   PmergeMe::mergeInsertionSort(T &container, int begin
     int size = container.size();
     int mid;
 
-    if (begin < 0 || end > size || size == 0)
+    if (begin < 0 || end >= size || size == 0)
         throw PmergeMe::PmergeMeException("Error\nIndex out of bounds or no elements");
     if (begin < end)
     {

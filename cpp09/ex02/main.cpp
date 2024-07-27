@@ -41,13 +41,11 @@ time_t now(void)
 
 int main(int ac, char **av)
 {
-    clock_t startVec, endVec, startList;
+    std::clock_t startVec, endVec, startList;
     PmergeMe pm;
     std::list<unsigned int>      list;
     std::vector<unsigned int>    vec;
     int size = ac -1;
-    double start;
-    
 
     if (ac == 1)
         return (std::cerr << "Usage: " << av[0] <<  " [. . . numbers]" << std::endl, 1);
@@ -55,30 +53,29 @@ int main(int ac, char **av)
     std::ios_base::sync_with_stdio(false);
     try
     {
-        start = now();
         inputVefication(size, av + 1);
         displayUnsortedSequence(size, (av + 1));
-        startVec = (double)clock();
+        startVec = std::clock();
         pm.fillContainer(vec, size, av + 1);
         pm.mergeInsertionSort(vec, 0, vec.size() - 1);
-        endVec = (double)clock();
-        start= now() - start;
+        endVec = std::clock();
         pm.printContainer(vec);
-        startList = (double)clock();
+        startList = static_cast<double>(clock());
         pm.fillContainer(list, size, av + 1);
         pm.mergeInsertionSort(list, 0, list.size() - 1);
+        startList = static_cast<double>(clock()) - startList;
         pm.printContainer(list);
-        startList = (double)clock() - startList;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << std::endl;
         return (-1);
     }
-    double elapsed_time = static_cast<double>(endVec - startVec) / CLOCKS_PER_SEC * 1000000;
-    // double timeVec = (double)startVec / (double)CLOCKS_PER_SEC;
-    double timeList = (double)startList / (double)CLOCKS_PER_SEC;
-    pm.displaySortingTime("std::vector<unsigned int>", elapsed_time);
+    // double elapsed_time = static_cast<double>(endVec - startVec) / CLOCKS_PER_SEC * 1000000;
+    double timeVec = (static_cast<double>(startVec) - static_cast<double>(endVec)) / (CLOCKS_PER_SEC);
+    double timeList = startList / static_cast<double>(CLOCKS_PER_SEC);
+    double timeInMicroseconds = 1 / (timeVec * 1e6);
+    pm.displaySortingTime("std::vector<unsigned int>", timeInMicroseconds);
     pm.displaySortingTime("std::list<unsigned int>  ", timeList);
     return (0);
 }
