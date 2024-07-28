@@ -153,26 +153,23 @@ void   PmergeMe::insertionSort(std::vector<unsigned int> &container, int low, in
 
 void    PmergeMe::merge(std::list<unsigned int> &list, int const left, int const mid, int const right)
 {
-    std::list<unsigned int>::iterator itRightArr;
-    std::list<unsigned int>::iterator itLeftArr;
-    std::list<unsigned int>::iterator itLeft;
-    std::list<unsigned int>::iterator itRight;
-    std::list<unsigned int>::iterator itList;
     std::list<unsigned int> leftArr;
     std::list<unsigned int> rightArr;
 
-    itList = list.begin();
+    std::list<unsigned int>::iterator itList = list.begin();
     std::advance(itList, left);
     int leftMaxSize = mid - left + 1;
     int rightMaxSize = right - mid;
-    itLeft = itList;
+
+    std::list<unsigned int>::iterator itLeft = itList;
     for(int i = 0; i < leftMaxSize; i++, itLeft++)
         leftArr.push_back(*itLeft);
-    itRight = itLeft;
+    std::list<unsigned int>::iterator itRight = itLeft;
     for(int i = 0; i < rightMaxSize; i++, itRight++)
         rightArr.push_back(*itRight);
-    itLeftArr = leftArr.begin();
-    itRightArr = rightArr.begin();
+
+    std::list<unsigned int>::iterator itLeftArr = leftArr.begin();
+    std::list<unsigned int>::iterator itRightArr = rightArr.begin();
     while (itLeftArr != leftArr.end() && itRightArr != rightArr.end())
     {
         if (*itLeftArr <= *itRightArr)
