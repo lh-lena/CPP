@@ -72,10 +72,11 @@ bool BitcoinExchange::loadDatabase( void )
         std::cerr << "Error: Failed to open file: " << _dbCsv << std::endl;
         return false;
     }
+    std::getline(file, date, ',');
     std::getline(file, line);
-    if (line.empty())
+    if (date.empty() || line.empty() || date.compare("date") || line.compare("exchange_rate"))
     {
-        std::cerr << "Error: file is empty" << std::endl;
+        std::cerr << "Error: file is empty or invalid header" << std::endl;
         file.close();
         return false;
     }
