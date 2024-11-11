@@ -27,8 +27,12 @@ void    reversePolishNotationProcess(RPN *stack, const std::string &input)
                         throw RPN::RpnException("Error");
                 }
                 else
-                    ;
+                {
+                    throw RPN::RpnException("Error");
+                }
         }
+        else
+            throw RPN::RpnException("Error 1");
     }
 }
 
