@@ -56,4 +56,5 @@ int main(int ac, char **av)
     }
     std::cout <<  stack.getValue() << std::endl;
     return (0);
+    
 }
